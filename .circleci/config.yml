@@ -17,3 +17,4 @@ workflows:
       - react/coverage:
           requires:
             - react/install
+# test
