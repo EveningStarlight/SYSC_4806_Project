@@ -1,27 +1,23 @@
 version: 2.1
+orbs:
+  react: thefrontside/react@0.2.0
 jobs:
-  build:
-    working_directory: ~/SYSC_4806_Project/survey
-    docker:
-      - image: circleci/node:10.16.3
-    steps:
-      - checkout
-      - run:
-          name: Update NPM
-          command: "sudo npm install -g npm@5"
-      #- restore_cache:
-      #    key: dependency-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install Dependencies
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: Run tests
-          command: npm run test//circleci.com/docs/2.0/configuration-reference/#workflows
+  push:
+    jobs:
+      - react/install
+      - react/eslint:
+          requires:
+            - react/install
+      - react/stylelint:
+          requires:
+            - react/install
+      - react/test:
+          requires:
+            - react/install
+      - react/coverage:
+          requires:
+            - react/install
 workflows:
   sample:
     jobs:
-      - build
+      - push
