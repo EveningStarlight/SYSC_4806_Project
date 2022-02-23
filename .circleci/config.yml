@@ -1,11 +1,12 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ~/repo/survey
+    working_directory: ~/SYSC_4806_Project/survey
     docker:
       - image: circleci/node:10.16.3
     steps:
       - checkout:
+        path: ~/SYSC_4806_Project
       - run:
           name: Update NPM
           command: "sudo npm install -g npm@5"
