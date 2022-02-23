@@ -6,7 +6,6 @@ jobs:
       - image: circleci/node:10.16.3
     steps:
       - checkout:
-        path: ~/repo
       - run:
           name: Update NPM
           command: "sudo npm install -g npm@5"
