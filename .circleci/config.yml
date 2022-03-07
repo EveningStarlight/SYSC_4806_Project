@@ -12,6 +12,9 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
+          command: yarn lint:prettier
+          name: Prettier
+      - run:
           command: yarn test
           name: Run tests
       - run:
