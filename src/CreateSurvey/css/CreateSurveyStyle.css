@@ -37,6 +37,7 @@ select, textarea */
     padding: 10px;
     display: block;
     width: 95%;
+    font-family: Verdana;
 }
  
 /* Styling form-control Radio
