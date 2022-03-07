@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+    <title>
+        Create a new Survey
+    </title>
+    <link rel="stylesheet" href="css/CreateSurveyStyle.css">
+</head>
+  
+<body>
+    <h1>Create a New Survey</h1>
+  
+    <!-- Create Form -->
+    <form id="CreateSurveyForm" action="php/CreateSurveyAction.php">
+ 
+        <!-- Details -->
+        <div class="form-control">
+            <label for= "surveyTitle" id="label-surveyTitle">
+                Title of Survey:
+            </label>
+
+            <input type="text"
+                   id="surveyTitle"
+                   placeholder="Enter your Survey Title" />
+        </div>
+  
+        <div class="form-control">
+            <label for="disc" id="label-disc">
+                Discription
+            </label>
+
+            <textarea id="disc"
+                placeholder="Enter the survey discription" >
+            </textarea>
+        </div>
+  
+        <!-- Questions-->
+        <div class="form-control">
+            <label for="q1" id="label-q1">
+                Question 1:
+            </label>
+
+            <input type="text"
+                   id="q1"
+                   placeholder="Enter your the 1st question" />
+        </div>
+  
+        <!-- Reset -->
+        <button id="resetButton" type="reset" value="reset">
+            Reset
+        </button>
+
+        <!-- Submit -->
+        <button type="submit" value="submit">
+            Create Survey
+        </button>
+    </form>
+</body>
+</html>
