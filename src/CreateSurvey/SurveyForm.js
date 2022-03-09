@@ -1,17 +1,13 @@
 import {
-    VStack,
     Box,
     Button,
     Input,
-    Flex,
     FormControl,
     FormLabel,
-    Spacer,
     Stack,
     Textarea,
 } from '@chakra-ui/react';
 import { Frame } from '../frame';
-import { Link as RouteLink } from 'react-router-dom';
 
 function NewSurvey() {
     return (

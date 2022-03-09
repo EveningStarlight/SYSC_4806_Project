@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import theme from './theme/theme';
 import { Home } from './home';
 import { Survey } from './survey';
 import { NewSurvey } from './CreateSurvey/SurveyForm';
-import { Box, Button, Flex, ChakraProvider } from '@chakra-ui/react';
+import { Button, Flex, ChakraProvider } from '@chakra-ui/react';
 
 import {
     BrowserRouter as Router,
