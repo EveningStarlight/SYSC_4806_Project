@@ -3,6 +3,9 @@
     "version": "0.1.0",
     "private": false,
     "license": "MIT",
+    "engines": {
+        "node": "16.x"
+    },
     "dependencies": {
         "@chakra-ui/react": "^1.8.6",
         "@emotion/react": "^11",
