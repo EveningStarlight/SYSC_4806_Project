@@ -1,12 +1,9 @@
 <?php
-$servername = "Sysc4806";
-$username = "root";
-$password = "DWedB";
+$servername = "mysql:host=localhost;dbname=minisurveymonkey";
+$username = "user";
+$password = 'password';
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+$pdo = new PDO($servername,$username,$password);
+
 ?>
