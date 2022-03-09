@@ -4,8 +4,13 @@
     "private": false,
     "license": "MIT",
     "dependencies": {
+        "@chakra-ui/react": "^1.8.6",
+        "@emotion/react": "^11",
+        "@emotion/styled": "^11",
+        "framer-motion": "^4",
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
+        "react-router-dom": "^6.2.2",
         "react-scripts": "^5.0.0",
         "web-vitals": "^2.1.4"
     },
