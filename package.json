@@ -3,15 +3,23 @@
     "version": "0.1.0",
     "private": false,
     "license": "MIT",
+    "engines": {
+        "node": "16.x"
+    },
     "dependencies": {
+        "@chakra-ui/react": "^1.8.6",
+        "@emotion/react": "^11",
+        "@emotion/styled": "^11",
+        "framer-motion": "^4",
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
+        "react-router-dom": "^6.2.2",
         "react-scripts": "^5.0.0",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "export NODE_OPTIONS=--openssl-legacy-provider; react-scripts build",
+        "build": "react-scripts build",
         "test": "react-scripts test --maxWorkers=2 --ci --coverage --reporters=default --reporters=jest-junit",
         "eject": "react-scripts eject",
         "prettier": "prettier **.md **.js **.json **.yml **.html **.css --write",
