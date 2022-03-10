@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 function Survey() {
 	const [data,setData]=useState([]);
 	const getData=()=>{
-	fetch('https://github.com/EveningStarlight/SYSC_4806_Project/blob/readFile/src/namesurvey.json'
+	fetch('https://raw.githubusercontent.com/EveningStarlight/SYSC_4806_Project/blob/readFile/src/namesurvey.json'
 	,{
 	  headers : { 
 		'Content-Type': 'application/json',
