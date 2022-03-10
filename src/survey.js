@@ -5,15 +5,12 @@ import React, { useState, useEffect } from 'react';
 function Survey() {
 	const [data,setData]=useState([]);
 	const getData=()=>{
-	fetch('https://github.com/EveningStarlight/SYSC_4806_Project/blob/readFile/src/namesurvey.json'
+	fetch('namesurvey.json'
 	,{
 	  headers : { 
 		'Content-Type': 'application/json',
 		'Accept': 'application/json'
-	   },
-	   mode: 'no-cors'
-	   
-	}
+	   }
 	)
 	  .then(function(response){
 		console.log(response)
