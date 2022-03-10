@@ -11,9 +11,8 @@ function Survey() {
 		'Content-Type': 'application/json',
 		'Accept': 'application/json'
 	   },
-	   {
-	   	mode: 'no-cors'
-	   }
+	   mode: 'no-cors'
+	   
 	}
 	)
 	  .then(function(response){
