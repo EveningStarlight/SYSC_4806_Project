@@ -21,8 +21,8 @@ jobs:
           command: yarn build
           name: Build app
       - run:
-          command: yarn startBD
-          name: Start Database
+          command: yarn buildBD
+          name: Build Database
       - persist_to_workspace:
           root: ~/project
           paths:
