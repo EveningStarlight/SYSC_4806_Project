@@ -1,15 +1,23 @@
-import { Box } from '@chakra-ui/react';
+import { Box, VStack } from '@chakra-ui/react';
 import { Frame } from './frame';
 import React, { useState, useEffect } from 'react';
 
 function Survey() {
 	var survey = require('./namesurvey.json');
-    let title = 'Survey Title';
-    let desc = 'a place to answer questions';
 
     return (
         <Frame title={survey.title}>
-            <Box>{survey.description}</Box>
+      		<VStack m={3}>
+            	<Box>{survey.description}</Box>
+            	<Box>
+            		{survey.Q1}
+            		<Input
+                        type="text"
+                        placeholder={survey.Q1}
+        	            mb={2}
+                    />
+        		</Box>
+        	</VStack>
         </Frame>
     );
 }
