@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { Frame } from './frame';
+import React, { useState, useEffect } from 'react';
 
 function Survey() {
 	const [data,setData]=useState([]);
