@@ -14,9 +14,11 @@ function Survey() {
                         {survey.Q1}
                         <Input type="text" placeholder={survey.Q1} mb={2} />
 
-                        <Button type="submit" value="submit">
-                                Answer Survey
-                        </Button>
+                        <RouteLink to="/">
+                            <Button type="submit" value="submit">
+                                    Answer Survey
+                            </Button>
+                        </RouteLink>
                     </Box>
                 </VStack>
             </form>
