@@ -1,4 +1,4 @@
-import { Box, VStack, Input } from '@chakra-ui/react';
+import { Box, VStack, Input, Button} from '@chakra-ui/react';
 import { Frame } from '../frame';
 
 function Survey() {
