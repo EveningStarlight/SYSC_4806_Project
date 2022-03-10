@@ -35,6 +35,7 @@ npm run prettier
 Both of these must pass in order for CircleCI to greenlight a build.
 
 ## Current state of the project:
+
 Further behind then we wanted, our scope was to big for this milestone, to many usecases where attempted
 
 ## Plan for the next sprint:
