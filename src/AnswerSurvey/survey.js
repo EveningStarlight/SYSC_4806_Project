@@ -1,8 +1,8 @@
 import { Box, VStack, Input } from '@chakra-ui/react';
-import { Frame } from './frame';
+import { Frame } from '../frame';
 
 function Survey() {
-    var survey = require('./namesurvey.json');
+    var survey = require('../surveys.json');
 
     return (
         <Frame title={survey.title}>
@@ -11,6 +11,10 @@ function Survey() {
                 <Box>
                     {survey.Q1}
                     <Input type="text" placeholder={survey.Q1} mb={2} />
+
+                    <Button type="submit" value="submit">
+                            Answer Survey
+                    </Button>
                 </Box>
             </VStack>
         </Frame>

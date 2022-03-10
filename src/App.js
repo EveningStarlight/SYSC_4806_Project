@@ -1,7 +1,7 @@
 import './App.css';
 import theme from './theme/theme';
 import { Home } from './home';
-import { Survey } from './survey';
+import { Survey } from './AnswerSurvey/survey';
 import { NewSurvey } from './CreateSurvey/SurveyForm';
 import { Button, Flex, ChakraProvider } from '@chakra-ui/react';
 
