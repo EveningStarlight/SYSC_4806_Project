@@ -10,7 +10,6 @@
         "@chakra-ui/react": "^1.8.6",
         "@emotion/react": "^11",
         "@emotion/styled": "^11",
-        "browserfs": "^1.4.3",
         "framer-motion": "^4",
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
