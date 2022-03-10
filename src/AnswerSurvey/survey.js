@@ -7,7 +7,7 @@ function Survey() {
 
     return (
         <Frame title={survey.title}>
-            <form id="AnswerSurveyForm" onSubmit={answerSurveySubmit()}>
+            <form id="AnswerSurveyForm" onSubmit={answerSurveySubmit}>
                 <VStack m={3}>
                     <Box>{survey.description}</Box>
                     <Box id="1">
