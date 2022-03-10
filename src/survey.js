@@ -1,6 +1,5 @@
 import { Box, VStack, Input } from '@chakra-ui/react';
 import { Frame } from './frame';
-import React, { useState, useEffect } from 'react';
 
 function Survey() {
     var survey = require('./namesurvey.json');
