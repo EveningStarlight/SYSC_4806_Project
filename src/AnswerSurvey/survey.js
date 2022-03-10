@@ -1,13 +1,10 @@
-import { Box, VStack, Input, Button} from '@chakra-ui/react';
+import { Box, VStack, Input, Button } from '@chakra-ui/react';
 import { Frame } from '../frame';
-import {
-    Link as RouteLink,
-} from 'react-router-dom';
+import { Link as RouteLink } from 'react-router-dom';
 
 var survey = require('../surveys.json');
 
 function Survey() {
-
     return (
         <Frame title={survey.title}>
             <form id="AnswerSurveyForm" onSubmit={answerSurveySubmit}>
@@ -19,7 +16,7 @@ function Survey() {
 
                         <RouteLink to="/">
                             <Button type="submit" value="submit">
-                                    Answer Survey
+                                Answer Survey
                             </Button>
                         </RouteLink>
                     </Box>
@@ -31,9 +28,9 @@ function Survey() {
 
 export { Survey };
 
-function answerSurveySubmit(){
-    for (let i=1; i < survey.numOfQs + 1; i++){
+function answerSurveySubmit() {
+    for (let i = 1; i < survey.numOfQs + 1; i++) {
         let answer = document.getElementById(i.toString);
         console.log(answer);
-    } 
+    }
 }
