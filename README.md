@@ -1,6 +1,6 @@
 # SYSC_4806_Project Mini-Monkey Survey
 
-Languages Used: JavaScript, HTML, CSS, PHP
+Languages Used: JavaScript, HTML, CSS
 
 How to run / use:
 
