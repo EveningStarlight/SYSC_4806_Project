@@ -3,21 +3,17 @@ import { Frame } from './frame';
 import React, { useState, useEffect } from 'react';
 
 function Survey() {
-	var survey = require('./namesurvey.json');
+    var survey = require('./namesurvey.json');
 
     return (
         <Frame title={survey.title}>
-      		<VStack m={3}>
-            	<Box>{survey.description}</Box>
-            	<Box>
-            		{survey.Q1}
-            		<Input
-                        type="text"
-                        placeholder={survey.Q1}
-        	            mb={2}
-                    />
-        		</Box>
-        	</VStack>
+            <VStack m={3}>
+                <Box>{survey.description}</Box>
+                <Box>
+                    {survey.Q1}
+                    <Input type="text" placeholder={survey.Q1} mb={2} />
+                </Box>
+            </VStack>
         </Frame>
     );
 }
