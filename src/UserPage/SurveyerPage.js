@@ -18,8 +18,8 @@ function DisplaySurveys() {
 		<Frame title="Your Surveys:">
 			
 			<stack direction = "row">
-				<p> data[0] </p>
-				<p> data[1] </p>
+				<p> data[0][1] </p>
+				//<p> data[1] </p>
 			</stack>
 			
 		</Frame>
