@@ -2,7 +2,7 @@ import { Box, VStack, Input, Button } from '@chakra-ui/react';
 import { Frame } from '../frame';
 import { Link as RouteLink } from 'react-router-dom';
 
-var survey = require('../surveys.json');
+var survey = require('../Database/surveys.json');
 
 function Survey() {
     return (
