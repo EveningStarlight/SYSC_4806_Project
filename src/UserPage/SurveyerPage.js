@@ -8,10 +8,14 @@ import {
     Textarea,
 } from '@chakra-ui/react';
 import { Frame } from '../frame';
+var database = require('../surveys.json');
+
 
 function DisplaySurveys() {
     return (
-		<p>Hello World!</p>
+		<Frame title="Your Surveys:">
+			<p>Hello World!</p>
+		</Frame>
 	);
 }
 
