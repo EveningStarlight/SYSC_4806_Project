@@ -1,10 +1,10 @@
 import { Box, VStack, Input, Button } from '@chakra-ui/react';
-import { Frame } from '../frame';
+import { Frame } from '../components/frame';
 import { Link as RouteLink } from 'react-router-dom';
 
-var survey = require('../Database/surveys.json');
+var survey = require('../database/data.json');
 
-function Survey() {
+function AnswerSurvey() {
     return (
         <Frame title={survey.title}>
             <form id="AnswerSurveyForm" onSubmit={answerSurveySubmit}>
@@ -26,7 +26,7 @@ function Survey() {
     );
 }
 
-export { Survey };
+export { AnswerSurvey };
 
 function answerSurveySubmit() {
     for (let i = 1; i < survey.numOfQs + 1; i++) {

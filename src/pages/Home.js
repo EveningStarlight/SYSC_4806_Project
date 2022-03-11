@@ -1,6 +1,7 @@
 import { VStack, Box, Button } from '@chakra-ui/react';
-import { Frame } from './frame';
 import { Link as RouteLink } from 'react-router-dom';
+
+import { Frame } from '../components/frame';
 
 function Home() {
     return (

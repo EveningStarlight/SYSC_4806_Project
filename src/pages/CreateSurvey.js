@@ -8,18 +8,20 @@ import {
     Stack,
     Textarea,
 } from '@chakra-ui/react';
-import { Frame } from '../frame';
-import { Question } from './Questions/Question';
-import { QuestionList } from './Questions/QuestionList';
 import { AddIcon } from '@chakra-ui/icons';
 
-class NewSurvey extends React.Component {
+import { Frame } from '../components/frame';
+import { Question } from '../components/questions/Question';
+import { QuestionList } from '../components/questions/QuestionList';
+
+class CreateSurvey extends React.Component {
     constructor(props) {
         super(props);
-        this.nextId = 1;
-        this.questions = [];
-        this.addQuestion();
-        this.addQuestion();
+        this.nextId = 3;
+        this.questions = [
+            <Question id={'1'} key={'1'} delete={this.removeQuestion} />,
+            <Question id={'2'} key={'2'} delete={this.removeQuestion} />,
+        ];
     }
 
     addQuestion = () => {
@@ -103,6 +105,6 @@ class NewSurvey extends React.Component {
     }
 }
 
-NewSurvey.defaultProps = { questions: [] };
+CreateSurvey.defaultProps = { questions: [] };
 
-export { NewSurvey };
+export { CreateSurvey };
