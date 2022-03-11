@@ -19,7 +19,7 @@ function DisplaySurveys() {
 			{
 				for (let i = 0; i < list.length; i++) {
 			
-				<Stack  justifyContent="space-between">
+				<Stack  direction="column" justifyContent="space-between">
 				<p>{list[i].title}</p>);
 					//<p>{database.description}</p>
 				</Stack>
