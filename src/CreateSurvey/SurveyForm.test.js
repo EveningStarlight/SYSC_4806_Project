@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event'
-import getAllByRole from '@testing-library/dom'
+import userEvent from '@testing-library/user-event';
+import getAllByRole from '@testing-library/dom';
 import { NewSurvey } from './SurveyForm';
 
 test('Redirect to Create Survey Form Page', () => {
@@ -15,7 +15,7 @@ test('Add Question', () => {
     expect(linkElement).toBeNull();
     const addQuestionButton = getByRole('button', {
         name: /Add Question/,
-      })
+    });
     userEvent.click(addQuestionButton);
     linkElement = screen.getByText(/Question 3:/i);
     expect(linkElement).toBeInTheDocument();
@@ -27,7 +27,7 @@ test('Remove Question', () => {
     expect(linkElement).toBeInTheDocument();
     const removeQuestionButton = getAllByRole('button', {
         name: /Remove Question/,
-      })
+    });
     userEvent.click(removeQuestionButton[0]);
     linkElement = screen.queryByText(/Question 3:/i);
     expect(linkElement).toBeNull();
