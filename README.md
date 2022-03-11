@@ -41,7 +41,12 @@ Further behind then we wanted, our scope was to big for this milestone, to many 
 
 ## Plan for the next sprint:
 
-Get all the base use cases implemented: - Writting Surevys to the backend - Saving Answers to the backend - The ability to select what survey you want to answer - The ability to see the answers to your survey
+Get all the base use cases implemented:
+
+    - Writting Surevys to the backend
+    - Saving Answers to the backend
+    - The ability to select what survey you want to answer
+    - The ability to see the answers to your survey
 
 Look into a different backend solution
 
@@ -49,7 +54,10 @@ Look into a different backend solution
 
 UML class diagram of Models
 
+![UML Class Diagram](/docs/Diagrams/ClassDiagram.jpg)
+
 Up-to-date schema of the database
+
 We have decided to go with a JSON file for our backend right now
 -every survey is a item in the file which has sub items for questions
 -each survey item has an array of answers which gets an array of all the answers per question
