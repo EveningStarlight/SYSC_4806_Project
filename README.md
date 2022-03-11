@@ -48,8 +48,11 @@ Look into a different backend solution
 ## Diagrams & Schemas
 
 UML class diagram of Models
+![UML Class Diagram]
+(/docs/Diagrams/SYSC 4806 Mini Monkey Survey Class diagram.jpg)
 
 Up-to-date schema of the database
+
 We have decided to go with a JSON file for our backend right now
 -every survey is a item in the file which has sub items for questions
 -each survey item has an array of answers which gets an array of all the answers per question
