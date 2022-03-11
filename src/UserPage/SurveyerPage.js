@@ -12,12 +12,12 @@ var database = require('../surveys.json');
 
 
 function DisplaySurveys() {
-
+	
     return (
 		<Frame title="Your Surveys:">
 			
 			<stack direction = "row">
-				<p> data['title'] </p>
+				document.write( data['title']);
 				<p> data['description'] </p>
 				
 			</stack>
