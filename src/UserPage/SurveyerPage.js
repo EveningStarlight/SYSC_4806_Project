@@ -12,9 +12,16 @@ var database = require('../surveys.json');
 
 
 function DisplaySurveys() {
+	var data = JSON.parse(database);
+
     return (
 		<Frame title="Your Surveys:">
-			<p>Hello World!</p>
+			
+			<stack direction = "row">
+				<p> data[0] </p>
+				<p> data[1] </p>
+			</stack>
+			
 		</Frame>
 	);
 }
