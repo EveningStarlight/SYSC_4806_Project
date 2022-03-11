@@ -17,8 +17,8 @@ function DisplaySurveys() {
 		<Frame title="Your Surveys:">
 			
 			<Stack direction="row" justifyContent="space-between">
-				<p>{database.'title'}</p>
-				<p>{database.'description'}</p>
+				<p>{database.title}</p>
+				<p>{database.description}</p>
 				
 			</Stack>
 			
