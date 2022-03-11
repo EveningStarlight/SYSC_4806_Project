@@ -15,7 +15,7 @@ function getTableInfo(){
 	
 	for (let i = 0; i < list.length; i++) {
 			
-		document.createElement(Stack  direction="column" justifyContent="space-between">);
+		document.createElement(<Stack  direction="column" justifyContent="space-between">);
 		document.createElement(<p>{list[i].title}</p>);
 		document.createElement(<p>{list[i].description}</p>);
 		document.createElement(</Stack>);
