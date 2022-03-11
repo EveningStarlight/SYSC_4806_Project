@@ -16,11 +16,10 @@ function DisplaySurveys() {
     return (
 		<Frame title="Your Surveys:">
 			
-			<stack direction = "row">
-				document.write( data['title']);
+			<Stack direction="row">
+				document.write( database['title']);
 				<p> data['description'] </p>
-				
-			</stack>
+			</Stack>
 			
 		</Frame>
 	);
