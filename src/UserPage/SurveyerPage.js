@@ -28,7 +28,7 @@ function DisplaySurveys() {
     return (
 		<Frame title="Your Surveys:">
 			<div id="tables">
-				{getTableInfo()}
+				{document.getElementById("tables").appendChild(getTableInfo())}
 			</div>
 		</Frame>
 	);
