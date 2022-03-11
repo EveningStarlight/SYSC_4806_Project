@@ -30,7 +30,7 @@ function DisplaySurveys() {
     return (
 		<Frame title="Your Surveys:">
 			<div id="tables">
-				{document.getElementById("tables").appendChild( getTableInfo )};
+				{ window.onload = () =>{ document.getElementById("tables").appendChild( getTableInfo )}};
 			</div>
 		</Frame>
 	);
