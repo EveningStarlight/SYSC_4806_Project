@@ -1,12 +1,4 @@
-import {
-    Box,
-    Button,
-    Input,
-    FormControl,
-    FormLabel,
-    Stack,
-    Textarea,
-} from '@chakra-ui/react';
+import { Stack } from '@chakra-ui/react';
 import { Frame } from '../frame';
 var database = require('../surveys.json');
 var list = database.tables;
