@@ -41,7 +41,12 @@ Further behind then we wanted, our scope was to big for this milestone, to many 
 
 ## Plan for the next sprint:
 
-Get all the base use cases implemented: - Writting Surevys to the backend - Saving Answers to the backend - The ability to select what survey you want to answer - The ability to see the answers to your survey
+Get all the base use cases implemented: 
+
+    - Writting Surevys to the backend
+    - Saving Answers to the backend 
+    - The ability to select what survey you want to answer 
+    - The ability to see the answers to your survey
 
 Look into a different backend solution
 
@@ -49,7 +54,7 @@ Look into a different backend solution
 
 UML class diagram of Models
 ![UML Class Diagram]
-(/docs/Diagrams/SYSC 4806 Mini Monkey Survey Class diagram.jpg)
+(/docs/Diagrams/ClassDiagram.jpg)
 
 Up-to-date schema of the database
 
