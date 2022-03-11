@@ -4,6 +4,7 @@ import { Home } from './home';
 import { Survey } from './AnswerSurvey/survey';
 import { NewSurvey } from './CreateSurvey/SurveyForm';
 import { Button, Flex, ChakraProvider } from '@chakra-ui/react';
+import { DisplaySurveys} from './UserPage/SurveyerPage';
 
 import {
     BrowserRouter as Router,
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/survey" element={<Survey />} />
                     <Route path="/createSurvey" element={<NewSurvey />} />
+					<Route path="/userPage" element={<DisplaySurveys />} />
                 </Routes>
             </Router>
         </ChakraProvider>

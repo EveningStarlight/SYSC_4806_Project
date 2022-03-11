@@ -13,6 +13,9 @@ function Home() {
                 <RouteLink to="/survey">
                     <Button m={3}>Complete Survey</Button>
                 </RouteLink>
+				<RouteLink to="/userPage">
+                    <Button m={3}>See your surveys</Button>
+                </RouteLink>
             </VStack>
         </Frame>
     );
