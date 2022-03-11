@@ -15,14 +15,16 @@ function AnswerSurvey() {
                         <Input type="text" placeholder={survey.Q1} mb={2} />
 
                         <RouteLink to="/">
-                            <Button
-                                ml="auto"
-                                type="submit"
-                                value="submit"
-                                colorScheme="purple"
-                            >
-                                Submit
-                            </Button>
+                            <VStack direction="row" justifyContent="end" mt={4}>
+                                <Button
+                                    ml="auto"
+                                    type="submit"
+                                    value="submit"
+                                    colorScheme="purple"
+                                >
+                                    Submit
+                                </Button>
+                            </VStack>
                         </RouteLink>
                     </Box>
                 </VStack>
