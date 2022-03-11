@@ -41,11 +41,11 @@ Further behind then we wanted, our scope was to big for this milestone, to many 
 
 ## Plan for the next sprint:
 
-Get all the base use cases implemented: 
+Get all the base use cases implemented:
 
     - Writting Surevys to the backend
-    - Saving Answers to the backend 
-    - The ability to select what survey you want to answer 
+    - Saving Answers to the backend
+    - The ability to select what survey you want to answer
     - The ability to see the answers to your survey
 
 Look into a different backend solution
