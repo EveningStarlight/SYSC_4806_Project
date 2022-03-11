@@ -1,9 +1,10 @@
-import './App.css';
-import theme from './theme/theme';
-import { Home } from './home';
-import { Survey } from './AnswerSurvey/survey';
-import { NewSurvey } from './CreateSurvey/SurveyForm';
 import { Button, Flex, ChakraProvider } from '@chakra-ui/react';
+
+import theme from '../theme/theme';
+
+import { Home } from '../pages/Home';
+import { AnswerSurvey } from '../pages/AnswerSurvey';
+import { CreateSurvey } from '../pages/CreateSurvey';
 
 import {
     BrowserRouter as Router,
@@ -23,8 +24,8 @@ function App() {
                 </Flex>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/survey" element={<Survey />} />
-                    <Route path="/createSurvey" element={<NewSurvey />} />
+                    <Route path="/survey" element={<AnswerSurvey />} />
+                    <Route path="/createSurvey" element={<CreateSurvey />} />
                 </Routes>
             </Router>
         </ChakraProvider>

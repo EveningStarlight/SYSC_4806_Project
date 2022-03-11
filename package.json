@@ -23,8 +23,8 @@
         "build": "react-scripts build",
         "test": "react-scripts test --maxWorkers=2 --ci --coverage --reporters=default --reporters=jest-junit",
         "eject": "react-scripts eject",
-        "prettier": "prettier **.md **.js **.json **.yml **.html **.css --write",
-        "lint:prettier": "prettier --check **.md **.js **.json **.yml **.html **.css"
+        "prettier": "prettier **.md **.js **.json **.yml **.html --write",
+        "lint:prettier": "prettier --check **.md **.js **.json **.yml **.html"
     },
     "eslintConfig": {
         "extends": "react-app"
