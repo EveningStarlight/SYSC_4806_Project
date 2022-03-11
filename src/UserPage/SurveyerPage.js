@@ -15,10 +15,10 @@ function getTableInfo(){
 	
 	for(var i = 0; i < (list.length); i++) {
 		document.createElement(<Box>);
-		document.createElement(<Stack  direction="column" justifyContent="space-between">);
-		document.createElement(<p>{list[i].title}</p>);
-		document.createElement(<p>{list[i].description}</p>);
-		document.createElement(</Stack>);
+			document.createElement(<Stack  direction="row" justifyContent="space-between">);
+				document.createElement(<p>{list[i].title}</p>);
+				document.createElement(<p>{list[i].description}</p>);
+			document.createElement(</Stack>);
 		document.createElement(</Box>);
 	}
 	
@@ -30,7 +30,7 @@ function DisplaySurveys() {
     return (
 		<Frame title="Your Surveys:">
 			<div id="tables">
-				{document.getElementById("tables").appendChild(getTableInfo())}
+				{document.getElementById("tables").appendChild( getTableInfo )};
 			</div>
 		</Frame>
 	);
