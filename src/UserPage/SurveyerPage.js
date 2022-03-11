@@ -21,7 +21,16 @@ function DisplaySurveys() {
 				<p>{database.description}</p>
 				<p>{list.length}</p>
 			</Stack>
-		// {
+
+		</Frame>
+	);
+}
+
+
+export { DisplaySurveys };
+
+//Testing multiple tables showing up
+		// 
 			// for (let i = 0; i < database.tables; i++) {
 		
 			// <Stack direction="row" justifyContent="space-between">
@@ -30,10 +39,4 @@ function DisplaySurveys() {
 				
 			// </Stack>
 			// }
-		// }
-		</Frame>
-	);
-}
-
-
-export { DisplaySurveys };
+		// 
