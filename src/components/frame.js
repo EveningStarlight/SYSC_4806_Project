@@ -9,7 +9,7 @@ function Frame({ title, ...props }) {
             <Center alignItems="center" pb={10}>
                 <Box
                     bg="white"
-                    w="550px"
+                    w={[300, 400, 600, 800, 1000]}
                     p="25px"
                     minH="500px"
                     boxShadow="dark-lg"
