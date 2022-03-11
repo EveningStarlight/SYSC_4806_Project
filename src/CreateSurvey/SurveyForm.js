@@ -10,24 +10,37 @@ import {
 } from '@chakra-ui/react';
 import { Frame } from '../frame';
 import { Question } from './Questions/Question';
+import { QuestionList } from './Questions/QuestionList';
 import { AddIcon } from '@chakra-ui/icons';
 
 class NewSurvey extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { questions: [] };
+        this.nextId = 1;
+        this.questions = [];
         this.addQuestion();
         this.addQuestion();
     }
 
     addQuestion = () => {
-        const num = this.state.questions.length + 1;
-        this.state.questions.push(<Question id={num} key={num.toString()} />);
-        console.log(this.state.questions);
+        this.questions.push(
+            <Question
+                id={this.nextId}
+                key={this.nextId.toString()}
+                delete={this.removeQuestion}
+            />,
+        );
+        this.nextId += 1;
         this.forceUpdate();
     };
 
-    removeQuestion(question) {}
+    removeQuestion = (question) => {
+        const index = this.questions.findIndex(
+            (x) => x.props.id === question.props.id,
+        );
+        this.questions.splice(index, 1);
+        this.forceUpdate();
+    };
 
     render() {
         return (
@@ -63,7 +76,7 @@ class NewSurvey extends React.Component {
                                     mb={2}
                                 ></Textarea>
                             </FormControl>
-                            {this.state.questions}
+                            <QuestionList questions={this.questions} />
                         </Box>
                         <Button
                             aria-label="Add Question"

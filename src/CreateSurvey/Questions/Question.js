@@ -10,6 +10,11 @@ import {
 import { MinusIcon } from '@chakra-ui/icons';
 
 class Question extends React.Component {
+    constructor(props) {
+        super(props);
+        this.delete = props.delete;
+    }
+
     render() {
         return (
             <FormControl>
@@ -28,6 +33,7 @@ class Question extends React.Component {
                         aria-label="Remove Question"
                         colorScheme="red"
                         icon={<MinusIcon />}
+                        onClick={() => this.delete(this)}
                     />
                 </HStack>
             </FormControl>
