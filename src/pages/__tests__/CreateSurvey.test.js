@@ -10,25 +10,21 @@ test('Redirect to Create Survey Form Page', () => {
 });
 
 test('Add Question', () => {
-    const { getByRole } = render(<CreateSurvey />);
-    let question3 = screen.queryByText(/Question 3/i);
-    expect(question3).toBeNull();
+    const { getByRole, getAllByRole } = render(<CreateSurvey />);
+    let inputs = getAllByRole('textbox').length;
     const addQuestionButton = getByRole('button', {
         name: /Add Question/,
     });
     userEvent.click(addQuestionButton);
-    question3 = screen.getByText(/Question 3/i);
-    expect(question3).toBeInTheDocument();
+    expect(getAllByRole('textbox').length).toBe(inputs + 1);
 });
 
 test('Remove Question', () => {
-    const { getAllByRole } = render(<CreateSurvey />);
-    let question1 = screen.getByText(/Question 1/i);
-    expect(question1).toBeInTheDocument();
+    const { getByRole, getAllByRole } = render(<CreateSurvey />);
+    let inputs = getAllByRole('textbox').length;
     const removeQuestionButton = getAllByRole('button', {
         name: /Remove Question/,
     });
     userEvent.click(removeQuestionButton[0]);
-    question1 = screen.queryByText(/Question 1/i);
-    expect(question1).toBeNull();
+    expect(getAllByRole('textbox').length).toBe(inputs - 1);
 });
