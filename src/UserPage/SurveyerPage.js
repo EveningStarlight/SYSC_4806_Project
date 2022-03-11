@@ -32,8 +32,8 @@ function DisplaySurveys() {
 			<div id="tables">
 			//	{ window.onload = () =>{ document.getElementById("tables").appendChild( getTableInfo )}};
 			<Stack direction="row" justifyContent="space-between">
-				<p>{database.title}</p>
-				<p>{database.description}</p>
+				<p>{list[0].title}</p>
+				<p>{list[0].description}</p>
 			</Stack>
 			</div>
 		</Frame>
