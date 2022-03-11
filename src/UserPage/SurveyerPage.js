@@ -11,21 +11,25 @@ import { Frame } from '../frame';
 var database = require('../surveys.json');
 var list = database.tables
 
-
+function getTableInfo(){
+	
+	for (let i = 0; i < list.length; i++) {
+			
+		document.createElement(Stack  direction="column" justifyContent="space-between">);
+		document.createElement(<p>{list[i].title}</p>);
+		document.createElement(<p>{list[i].description}</p>);
+		document.createElement(</Stack>);
+	}
+	
+	
+}
 function DisplaySurveys() {
 	
     return (
 		<Frame title="Your Surveys:">
-			{
-				for (let i = 0; i < list.length; i++) {
-			
-				<Stack  direction="column" justifyContent="space-between">
-				<p>{list[i].title}</p>);
-					//<p>{database.description}</p>
-				</Stack>
-				}
-			}
-
+			<div id="tables">
+				{getTableInfo()}
+			</div>
 		</Frame>
 	);
 }
