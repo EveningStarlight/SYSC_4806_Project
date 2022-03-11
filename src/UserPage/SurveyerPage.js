@@ -17,7 +17,8 @@ function DisplaySurveys() {
 		<Frame title="Your Surveys:">
 			
 			<Stack direction="row" justifyContent="space-between">
-				<a> document.write( database.'title'); </a>
+				<p>{database.'title'}</p>
+				<p>{database.'description'}</p>
 				
 			</Stack>
 			
