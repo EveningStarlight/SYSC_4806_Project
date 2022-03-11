@@ -13,7 +13,7 @@ var list = database.tables
 
 function getTableInfo(){
 	
-	for i = 0; i < list.length; i++) {
+	for (i = 0; i < list.length; i++) {
 		document.createElement(<Box>);
 		document.createElement(<Stack  direction="column" justifyContent="space-between">);
 		document.createElement(<p>{list[i].title}</p>);
