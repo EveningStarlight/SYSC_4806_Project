@@ -16,11 +16,15 @@ function DisplaySurveys() {
 	
     return (
 		<Frame title="Your Surveys:">
-			<Stack direction="row" justifyContent="space-between">
-				<p>{database.title}</p>
-				<p>{database.description}</p>
-				<p>{list.length}</p>
-			</Stack>
+			{
+				for (let i = 0; i < list.length; i++) {
+			
+				<Stack direction="row" justifyContent="space-between">
+				<p>{list[i].title}</p>);
+					//<p>{database.description}</p>
+				</Stack>
+				}
+			}
 
 		</Frame>
 	);
@@ -30,13 +34,8 @@ function DisplaySurveys() {
 export { DisplaySurveys };
 
 //Testing multiple tables showing up
-		// 
-			// for (let i = 0; i < database.tables; i++) {
-		
 			// <Stack direction="row" justifyContent="space-between">
 				// <p>{database.title}</p>
 				// <p>{database.description}</p>
-				
+				// <p>{list.length}</p>
 			// </Stack>
-			// }
-		// 
