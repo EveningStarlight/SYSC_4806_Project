@@ -1,7 +1,24 @@
 {
-    "title": "What is your name",
-    "description": "a simple survey asking your name!",
-    "numOfQs": 1,
-    "Q1": "what is your name?",
-    "Q1Answers": []
+	"Database": "surveys",
+	"tables":[
+	{
+		"title": "What is your name",
+		"description": "a simple survey asking your name!",
+		"numOfQs": 1,
+		"Q1": "what is your name?",
+		"Q1Answers": []
+	}
+	,
+	{
+		"title": "How old are you?",
+		"description": "a simple survey asking your age!",
+		"numOfQs": 1,
+		"Q1": "what is your age?",
+		"Q1Answers": []
+	}
+		
+	
+	]
+
+
 }
