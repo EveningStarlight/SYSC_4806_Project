@@ -15,8 +15,13 @@ function AnswerSurvey() {
                         <Input type="text" placeholder={survey.Q1} mb={2} />
 
                         <RouteLink to="/">
-                            <Button type="submit" value="submit">
-                                Answer Survey
+                            <Button
+                                ml="auto"
+                                type="submit"
+                                value="submit"
+                                colorScheme="purple"
+                            >
+                                Submit
                             </Button>
                         </RouteLink>
                     </Box>

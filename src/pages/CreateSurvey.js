@@ -94,7 +94,11 @@ class CreateSurvey extends React.Component {
                                 Reset
                             </Button>
 
-                            <Button type="submit" value="submit">
+                            <Button
+                                colorScheme="purple"
+                                type="submit"
+                                value="submit"
+                            >
                                 Create Survey
                             </Button>
                         </Stack>
