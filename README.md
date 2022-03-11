@@ -53,8 +53,8 @@ Look into a different backend solution
 ## Diagrams & Schemas
 
 UML class diagram of Models
-![UML Class Diagram]
-(/docs/Diagrams/ClassDiagram.jpg)
+
+![UML Class Diagram](/docs/Diagrams/ClassDiagram.jpg)
 
 Up-to-date schema of the database
 
