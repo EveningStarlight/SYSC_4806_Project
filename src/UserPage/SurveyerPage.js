@@ -12,15 +12,16 @@ var database = require('../surveys.json');
 var list = database.tables
 
 function getTableInfo(){
-	return{
-		for (i = 0; i < list.length; i++) {
-				
-			document.createElement(<Stack  direction="column" justifyContent="space-between">);
-			document.createElement(<p>{list[i].title}</p>);
-			document.createElement(<p>{list[i].description}</p>);
-			document.createElement(</Stack>);
-		}
+	
+	for i = 0; i < list.length; i++) {
+		document.createElement(<Box>);
+		document.createElement(<Stack  direction="column" justifyContent="space-between">);
+		document.createElement(<p>{list[i].title}</p>);
+		document.createElement(<p>{list[i].description}</p>);
+		document.createElement(</Stack>);
+		document.createElement(</Box>);
 	}
+	
 	
 	
 }
