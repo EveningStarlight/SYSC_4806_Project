@@ -30,6 +30,7 @@ class CreateSurvey extends React.Component {
                 id={this.nextId}
                 key={this.nextId.toString()}
                 delete={this.removeQuestion}
+                type="number"
             />,
         );
         this.nextId += 1;

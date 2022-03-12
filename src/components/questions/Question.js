@@ -6,8 +6,9 @@ import {
     HStack,
     ListItem,
 } from '@chakra-ui/react';
-
 import { MinusIcon } from '@chakra-ui/icons';
+
+import { InputText, InputNumber } from './Inputs';
 
 class Question extends React.Component {
     constructor(props) {
@@ -19,12 +20,19 @@ class Question extends React.Component {
         return (
             <ListItem>
                 <FormControl>
+                    <FormLabel htmlFor={this.props.id}>
+                        {' '}
+                        Question {this.props.id}:{' '}
+                    </FormLabel>
                     <HStack mb={2}>
-                        <Input
-                            type="text"
-                            id={this.props.id}
-                            placeholder="Enter the question"
-                        />
+                        {this.props.type === 'text' ? (
+                            <InputText />
+                        ) : this.props.type === 'number' ? (
+                            <InputNumber />
+                        ) : (
+                            <></>
+                        )}
+
                         <IconButton
                             aria-label="Remove Question"
                             colorScheme="red"
@@ -37,5 +45,9 @@ class Question extends React.Component {
         );
     }
 }
+
+Question.defaultProps = {
+    type: 'text',
+};
 
 export { Question };
