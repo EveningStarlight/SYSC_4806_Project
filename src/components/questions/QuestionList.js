@@ -1,8 +1,9 @@
 import React from 'react';
+import { OrderedList } from '@chakra-ui/react';
 
 class QuestionList extends React.Component {
     render() {
-        return <>{this.props.questions}</>;
+        return <OrderedList>{this.props.questions}</OrderedList>;
     }
 }
 
