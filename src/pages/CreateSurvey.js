@@ -14,6 +14,8 @@ import { Frame } from '../components/frame';
 import { Question } from '../components/questions/Question';
 import { QuestionList } from '../components/questions/QuestionList';
 
+//var bodyParser = require('body-parser');
+
 class CreateSurvey extends React.Component {
     constructor(props) {
         super(props);
@@ -34,6 +36,9 @@ class CreateSurvey extends React.Component {
         );
         this.nextId += 1;
         this.forceUpdate();
+        let question = this.questions[0];
+        console.log(question);       
+       
     };
 
     removeQuestion = (question) => {
@@ -44,10 +49,26 @@ class CreateSurvey extends React.Component {
         this.forceUpdate();
     };
 
+    
+    createSurveySubmit() {
+        //grabing the title and desctiption of the form 
+        let title = document.forms["CreateSurveyForm"]["surveyTitle"].value;
+        let description = document.forms["CreateSurveyForm"]["desc"].value;
+       // let question = document.forms["CreateSurveyForm"]["questions"].value;
+        const allQuestions= [];
+    
+        for(let i = 1; i > 3; i++){
+             let question = document.forms["CreateSurveyForm"][i].value;
+             allQuestions.push(question);
+             alert(question);
+         }
+        alert(title + " " + description + " " );
+    };
+
     render() {
         return (
             <Frame title="Create a New Survey">
-                <form id="CreateSurveyForm" action="php/CreateSurveyAction.php">
+                <form id="CreateSurveyForm" onSubmit={this.createSurveySubmit}>
                     <Stack
                         direction="column"
                         justifyContent="space-between"
@@ -78,7 +99,13 @@ class CreateSurvey extends React.Component {
                                     mb={2}
                                 ></Textarea>
                             </FormControl>
-                            <QuestionList questions={this.questions} />
+                            <FormControl>
+                                <FormLabel htmlFor="question">
+                                    Questions
+                                </FormLabel>
+
+                                <QuestionList questions={this.questions} />
+                            </FormControl>
                         </Box>
                         <Button
                             aria-label="Add Question"
@@ -112,3 +139,5 @@ class CreateSurvey extends React.Component {
 CreateSurvey.defaultProps = { questions: [] };
 
 export { CreateSurvey };
+
+

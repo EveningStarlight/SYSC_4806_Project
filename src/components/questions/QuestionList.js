@@ -3,7 +3,7 @@ import { OrderedList } from '@chakra-ui/react';
 
 class QuestionList extends React.Component {
     render() {
-        return <OrderedList>{this.props.questions}</OrderedList>;
+        return <OrderedList id="questionList">{this.props.questions}</OrderedList>;
     }
 }
 
