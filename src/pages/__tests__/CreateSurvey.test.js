@@ -11,20 +11,20 @@ test('Redirect to Create Survey Form Page', () => {
 
 test('Add Question', () => {
     const { getByRole, getAllByRole } = render(<CreateSurvey />);
-    let inputs = getAllByRole('textbox').length;
+    let questions = getAllByRole('question').length;
     const addQuestionButton = getByRole('button', {
         name: /Add Question/,
     });
     userEvent.click(addQuestionButton);
-    expect(getAllByRole('textbox').length).toBe(inputs + 1);
+    expect(getAllByRole('question').length).toBe(questions + 1);
 });
 
 test('Remove Question', () => {
     const { getByRole, getAllByRole } = render(<CreateSurvey />);
-    let inputs = getAllByRole('textbox').length;
+    let questions = getAllByRole('question').length;
     const removeQuestionButton = getAllByRole('button', {
         name: /Remove Question/,
     });
     userEvent.click(removeQuestionButton[0]);
-    expect(getAllByRole('textbox').length).toBe(inputs - 1);
+    expect(getAllByRole('question').length).toBe(questions - 1);
 });

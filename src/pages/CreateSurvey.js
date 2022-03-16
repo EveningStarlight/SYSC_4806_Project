@@ -17,12 +17,21 @@ import { QuestionList } from '../components/questions/QuestionList';
 class CreateSurvey extends React.Component {
     constructor(props) {
         super(props);
-        this.nextId = 3;
+        this.nextId = 1;
+
+        const id = [this.getNextId(), this.getNextId(), this.getNextId()];
         this.questions = [
-            <Question id={'1'} key={'1'} delete={this.removeQuestion} />,
-            <Question id={'2'} key={'2'} delete={this.removeQuestion} />,
+            <Question id={id[0]} delete={this.removeQuestion} type="text" />,
+            <Question id={id[1]} delete={this.removeQuestion} type="number" />,
+            <Question id={id[2]} delete={this.removeQuestion} type="choice" />,
         ];
     }
+
+    getNextId = () => {
+        const id = 'Q-' + this.nextId.toString();
+        this.nextId += 1;
+        return id;
+    };
 
     addQuestion = () => {
         this.questions.push(
@@ -30,6 +39,7 @@ class CreateSurvey extends React.Component {
                 id={this.nextId}
                 key={this.nextId.toString()}
                 delete={this.removeQuestion}
+                type="text"
             />,
         );
         this.nextId += 1;

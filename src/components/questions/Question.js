@@ -1,35 +1,61 @@
 import React from 'react';
 import {
-    Input,
     IconButton,
     FormControl,
     HStack,
     ListItem,
+    Select,
 } from '@chakra-ui/react';
-
 import { MinusIcon } from '@chakra-ui/icons';
+
+import { inputs, InputText, InputNumber, InputChoice } from '../inputs/Inputs';
 
 class Question extends React.Component {
     constructor(props) {
         super(props);
-        this.delete = props.delete;
+        this.type = this.props.type;
     }
-
+    makeOption = (value) => {
+        return <option value={value}>{value}</option>;
+    };
     render() {
         return (
-            <ListItem>
+            <ListItem
+                role="question"
+                p={4}
+                my={4}
+                border="2px"
+                borderColor="purple.200"
+                borderRadius={10}
+                key={this.props.id}
+            >
+                <Select
+                    mb={3}
+                    value={this.type}
+                    onChange={(e) => {
+                        this.type = e.target.value;
+                        this.forceUpdate();
+                    }}
+                >
+                    {inputs.values.map(this.makeOption)}
+                </Select>
                 <FormControl>
-                    <HStack mb={2}>
-                        <Input
-                            type="text"
-                            id={this.props.id}
-                            placeholder="Enter the question"
-                        />
+                    <HStack>
+                        {this.type === 'text' ? (
+                            <InputText />
+                        ) : this.type === 'number' ? (
+                            <InputNumber />
+                        ) : this.type === 'choice' ? (
+                            <InputChoice idPrefix={this.props.id} />
+                        ) : (
+                            <></>
+                        )}
+
                         <IconButton
                             aria-label="Remove Question"
                             colorScheme="red"
                             icon={<MinusIcon />}
-                            onClick={() => this.delete(this)}
+                            onClick={() => this.props.delete(this)}
                         />
                     </HStack>
                 </FormControl>
@@ -37,5 +63,9 @@ class Question extends React.Component {
         );
     }
 }
+
+Question.defaultProps = {
+    type: 'text',
+};
 
 export { Question };
