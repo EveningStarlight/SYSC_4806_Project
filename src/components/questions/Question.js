@@ -3,32 +3,26 @@ import {
     Input,
     IconButton,
     FormControl,
+    FormLabel,
     HStack,
     ListItem,
 } from '@chakra-ui/react';
 import { MinusIcon } from '@chakra-ui/icons';
 
-import { InputText, InputNumber } from './Inputs';
+import { InputText, InputNumber, InputChoice } from '../inputs/Inputs';
 
 class Question extends React.Component {
-    constructor(props) {
-        super(props);
-        this.delete = props.delete;
-    }
-
     render() {
         return (
-            <ListItem>
+            <ListItem role="question">
                 <FormControl>
-                    <FormLabel htmlFor={this.props.id}>
-                        {' '}
-                        Question {this.props.id}:{' '}
-                    </FormLabel>
-                    <HStack mb={2}>
+                    <HStack p={4} m={2} border="1px">
                         {this.props.type === 'text' ? (
                             <InputText />
                         ) : this.props.type === 'number' ? (
                             <InputNumber />
+                        ) : this.props.type === 'choice' ? (
+                            <InputChoice idPrefix={this.props.id} />
                         ) : (
                             <></>
                         )}
@@ -37,7 +31,7 @@ class Question extends React.Component {
                             aria-label="Remove Question"
                             colorScheme="red"
                             icon={<MinusIcon />}
-                            onClick={() => this.delete(this)}
+                            onClick={() => this.props.delete(this)}
                         />
                     </HStack>
                 </FormControl>
