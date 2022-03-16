@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-    Button,
-    FormLabel,
-    Input,
-    UnorderedList,
-    Stack,
-} from '@chakra-ui/react';
+import { Button, FormLabel, Input, Stack } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 
 import { Choice } from './Choice';

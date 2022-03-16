@@ -11,7 +11,7 @@ import { MinusIcon } from '@chakra-ui/icons';
 class Choice extends React.Component {
     render() {
         return (
-            <ListItem p={2}>
+            <ListItem p={2} key={this.props.id}>
                 <FormControl>
                     <HStack>
                         <Input

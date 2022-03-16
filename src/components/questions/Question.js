@@ -1,27 +1,51 @@
 import React from 'react';
 import {
-    Input,
     IconButton,
     FormControl,
-    FormLabel,
     HStack,
     ListItem,
+    Select,
 } from '@chakra-ui/react';
 import { MinusIcon } from '@chakra-ui/icons';
 
-import { InputText, InputNumber, InputChoice } from '../inputs/Inputs';
+import { inputs, InputText, InputNumber, InputChoice } from '../inputs/Inputs';
 
 class Question extends React.Component {
+    constructor(props) {
+        super(props);
+        this.type = this.props.type;
+    }
+    makeOption = (value) => {
+        return <option value={value}>{value}</option>;
+    };
     render() {
         return (
-            <ListItem role="question">
+            <ListItem
+                role="question"
+                p={4}
+                my={4}
+                border="2px"
+                borderColor="purple.200"
+                borderRadius={10}
+                key={this.props.id}
+            >
+                <Select
+                    mb={3}
+                    value={this.type}
+                    onChange={(e) => {
+                        this.type = e.target.value;
+                        this.forceUpdate();
+                    }}
+                >
+                    {inputs.values.map(this.makeOption)}
+                </Select>
                 <FormControl>
-                    <HStack p={4} m={2} border="1px">
-                        {this.props.type === 'text' ? (
+                    <HStack>
+                        {this.type === 'text' ? (
                             <InputText />
-                        ) : this.props.type === 'number' ? (
+                        ) : this.type === 'number' ? (
                             <InputNumber />
-                        ) : this.props.type === 'choice' ? (
+                        ) : this.type === 'choice' ? (
                             <InputChoice idPrefix={this.props.id} />
                         ) : (
                             <></>

@@ -21,24 +21,9 @@ class CreateSurvey extends React.Component {
 
         const id = [this.getNextId(), this.getNextId(), this.getNextId()];
         this.questions = [
-            <Question
-                id={id[0]}
-                key={id[0]}
-                delete={this.removeQuestion}
-                type="text"
-            />,
-            <Question
-                id={id[1]}
-                key={id[1]}
-                delete={this.removeQuestion}
-                type="number"
-            />,
-            <Question
-                id={id[2]}
-                key={id[2]}
-                delete={this.removeQuestion}
-                type="choice"
-            />,
+            <Question id={id[0]} delete={this.removeQuestion} type="text" />,
+            <Question id={id[1]} delete={this.removeQuestion} type="number" />,
+            <Question id={id[2]} delete={this.removeQuestion} type="choice" />,
         ];
     }
 
@@ -54,7 +39,7 @@ class CreateSurvey extends React.Component {
                 id={this.nextId}
                 key={this.nextId.toString()}
                 delete={this.removeQuestion}
-                type="choice"
+                type="text"
             />,
         );
         this.nextId += 1;
