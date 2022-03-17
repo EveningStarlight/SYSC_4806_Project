@@ -8,13 +8,16 @@ import { ChoiceList } from './ChoiceList';
 class InputChoice extends React.Component {
     constructor(props) {
         super(props);
-        this.nextId = 3;
-        const id1 = this.getNextId();
-        const id2 = this.getNextId();
-        this.choices = [
-            <Choice id={id1} key={id1} delete={this.removeChoice} />,
-            <Choice id={id2} key={id2} delete={this.removeChoice} />,
-        ];
+        this.choices = [];
+        this.nextId = 1;
+
+        this.json = this.props.json;
+        this.json.question = '';
+        this.json.type = 'choice';
+        this.json.choices = {};
+        
+        this.addChoice();
+        this.addChoice();
     }
 
     getNextId = () => {
@@ -25,18 +28,20 @@ class InputChoice extends React.Component {
 
     addChoice = () => {
         const id = this.getNextId();
+        this.json.choices[id] = {};
         this.choices.push(
             <Choice
                 id={id}
                 key={id}
+                json={this.json.choices[id]}
                 delete={this.removeChoice}
-                type="number"
+                type="choice"
             />,
         );
-        this.forceUpdate();
     };
 
     removeChoice = (choice) => {
+        delete this.json.choices[choice.props.id]
         const index = this.choices.findIndex(
             (x) => x.props.id === choice.props.id,
         );
@@ -50,7 +55,9 @@ class InputChoice extends React.Component {
             <Stack direction={'column'} w="100%">
                 <Stack direction={'row'}>
                     <FormLabel htmlFor={id}>Choice Question</FormLabel>
-                    <Input type="text" id={id} placeholder="Enter a Question" />
+                    <Input type="text" id={id} placeholder="Enter a Question" onChange={(e) => {
+                                        this.json.question = e.target.value;
+                                    }}/>
                 </Stack>
                 <Stack direction={'column'}>
                     <ChoiceList choices={this.choices} />
@@ -58,7 +65,11 @@ class InputChoice extends React.Component {
                         aria-label="Add Choice"
                         colorScheme="green"
                         leftIcon={<AddIcon />}
-                        onClick={this.addChoice}
+                        onClick={() => {
+                            this.addChoice();
+                            this.forceUpdate();
+                        }}
+                        
                     >
                         Add Choice
                     </Button>

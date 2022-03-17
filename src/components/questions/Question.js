@@ -14,8 +14,6 @@ class Question extends React.Component {
     constructor(props) {
         super(props);
         this.type = this.props.type;
-        this.json = this.props.json;
-        this.json.title = 'someText'      
     }
     
      makeOption = (value) => {
@@ -47,11 +45,11 @@ class Question extends React.Component {
                 <FormControl>
                     <HStack>
                         {this.type === 'text' ? (
-                            <InputText />
+                            <InputText json={this.props.json}/>
                         ) : this.type === 'number' ? (
-                            <InputNumber />
+                            <InputNumber json={this.props.json}/>
                         ) : this.type === 'choice' ? (
-                            <InputChoice idPrefix={this.props.id} />
+                            <InputChoice idPrefix={this.props.id} json={this.props.json}/>
                         ) : (
                             <></>
                         )}

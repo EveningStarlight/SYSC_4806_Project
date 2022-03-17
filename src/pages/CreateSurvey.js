@@ -54,6 +54,7 @@ class CreateSurvey extends React.Component {
     };
 
     removeQuestion = (question) => {
+        delete this.json.questions[question.props.id]
         const index = this.questions.findIndex(
             (x) => x.props.id === question.props.id,
         );

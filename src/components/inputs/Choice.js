@@ -9,6 +9,11 @@ import {
 import { MinusIcon } from '@chakra-ui/icons';
 
 class Choice extends React.Component {
+    constructor(props) {
+        super(props);
+        this.json = this.props.json;
+    }
+
     render() {
         return (
             <ListItem p={2} key={this.props.id}>
@@ -18,6 +23,9 @@ class Choice extends React.Component {
                             type="text"
                             id={this.props.id}
                             placeholder="Enter a Choice"
+                            onChange={(e) => {
+                                this.json.choice = e.target.value;
+                            }}
                         />
                         <IconButton
                             aria-label="Remove Question"
