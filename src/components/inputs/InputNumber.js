@@ -20,11 +20,13 @@ class InputNumber extends React.Component {
             <Stack direction={'column'} w="100%">
                 <Stack direction={'row'}>
                     <FormLabel htmlFor={qId}>Question:</FormLabel>
-                    <Input 
-                        type="text" id={qId} placeholder="Enter Question" 
+                    <Input
+                        type="text"
+                        id={qId}
+                        placeholder="Enter Question"
                         onChange={(e) => {
                             this.json.question = e.target.value;
-                        }}                    
+                        }}
                     />
                 </Stack>
                 <Stack direction={'row'}>

@@ -25,7 +25,7 @@ class CreateSurvey extends React.Component {
             description: '',
             questions: {},
         };
-        
+
         this.addQuestion('text');
         this.addQuestion('number');
         this.addQuestion('choice');
@@ -37,7 +37,6 @@ class CreateSurvey extends React.Component {
         return id;
     };
 
-
     addQuestion = (type) => {
         const id = this.getNextId();
         this.json.questions[id] = {};
@@ -48,13 +47,12 @@ class CreateSurvey extends React.Component {
                 json={this.json.questions[id]}
                 delete={this.removeQuestion}
                 type={type ? type : 'text'}
-
             />,
         );
     };
 
     removeQuestion = (question) => {
-        delete this.json.questions[question.props.id]
+        delete this.json.questions[question.props.id];
         const index = this.questions.findIndex(
             (x) => x.props.id === question.props.id,
         );
@@ -112,7 +110,7 @@ class CreateSurvey extends React.Component {
                             aria-label="Add Question"
                             colorScheme="green"
                             leftIcon={<AddIcon />}
-                            onClick={()=> {
+                            onClick={() => {
                                 this.addQuestion();
                                 this.forceUpdate();
                             }}

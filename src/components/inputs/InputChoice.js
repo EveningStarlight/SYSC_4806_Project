@@ -15,7 +15,7 @@ class InputChoice extends React.Component {
         this.json.question = '';
         this.json.type = 'choice';
         this.json.choices = {};
-        
+
         this.addChoice();
         this.addChoice();
     }
@@ -41,7 +41,7 @@ class InputChoice extends React.Component {
     };
 
     removeChoice = (choice) => {
-        delete this.json.choices[choice.props.id]
+        delete this.json.choices[choice.props.id];
         const index = this.choices.findIndex(
             (x) => x.props.id === choice.props.id,
         );
@@ -55,9 +55,14 @@ class InputChoice extends React.Component {
             <Stack direction={'column'} w="100%">
                 <Stack direction={'row'}>
                     <FormLabel htmlFor={id}>Choice Question</FormLabel>
-                    <Input type="text" id={id} placeholder="Enter a Question" onChange={(e) => {
-                                        this.json.question = e.target.value;
-                                    }}/>
+                    <Input
+                        type="text"
+                        id={id}
+                        placeholder="Enter a Question"
+                        onChange={(e) => {
+                            this.json.question = e.target.value;
+                        }}
+                    />
                 </Stack>
                 <Stack direction={'column'}>
                     <ChoiceList choices={this.choices} />
@@ -69,7 +74,6 @@ class InputChoice extends React.Component {
                             this.addChoice();
                             this.forceUpdate();
                         }}
-                        
                     >
                         Add Choice
                     </Button>
