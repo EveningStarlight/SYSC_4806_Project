@@ -37,6 +37,7 @@ class CreateSurvey extends React.Component {
         return id;
     };
 
+
     addQuestion = (type) => {
         const id = this.getNextId();
         this.json.questions[id] = {};
@@ -47,6 +48,7 @@ class CreateSurvey extends React.Component {
                 json={this.json.questions[id]}
                 delete={this.removeQuestion}
                 type={type ? type : 'text'}
+
             />,
         );
     };
