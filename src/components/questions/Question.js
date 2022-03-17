@@ -13,17 +13,10 @@ class Question extends React.Component {
     constructor(props) {
         super(props);
         this.delete = props.delete;
-        this.state = {
-            q: ''
-        };
-        this.handleChange = this.handleChange.bind(this);
+        this.json = this.props.json;
+        this.json.title = 'someText';
     }
 
-    handleChange(event) {
-        this.setState({
-            q: event.target.value
-        });
-      }
 
     render() {
         return (
@@ -34,8 +27,6 @@ class Question extends React.Component {
                             type="text"
                             id={this.props.id}
                             placeholder="Enter the question"
-                            value={this.state.value} 
-                            onChange={this.handleChange}
                         />
                         <IconButton
                             aria-label="Remove Question"

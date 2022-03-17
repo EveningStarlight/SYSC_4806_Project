@@ -14,31 +14,41 @@ import { Frame } from '../components/frame';
 import { Question } from '../components/questions/Question';
 import { QuestionList } from '../components/questions/QuestionList';
 
-//var bodyParser = require('body-parser');
-
 class CreateSurvey extends React.Component {
     constructor(props) {
         super(props);
-        this.nextId = 3;
-        this.questions = [
-            <Question id={'1'} key={'1'} delete={this.removeQuestion} />,
-            <Question id={'2'} key={'2'} delete={this.removeQuestion} />,
-        ];
+        this.nextId = 1;
+        this.questions = [];
+
+        this.json = {
+            title: '',
+            description: '',
+            questions: {},
+        };
+        
+        this.addQuestion('text');
+        this.addQuestion('number');
+        this.addQuestion('choice');
     }
 
-    addQuestion = () => {
+    getNextId = () => {
+        const id = 'Q-' + this.nextId.toString();
+        this.nextId += 1;
+        return id;
+    };
+
+    addQuestion = (type) => {
+        const id = this.getNextId();
+        this.json.questions[id] = {};
         this.questions.push(
             <Question
-                id={this.nextId}
-                key={this.nextId.toString()}
+                id={id}
+                key={id}
+                json={this.json.questions[id]}
                 delete={this.removeQuestion}
+                type={type ? type : 'text'}
             />,
         );
-        this.nextId += 1;
-        this.forceUpdate();
-        let question = this.questions[0];
-        console.log(question);       
-       
     };
 
     removeQuestion = (question) => {
@@ -49,26 +59,14 @@ class CreateSurvey extends React.Component {
         this.forceUpdate();
     };
 
-    
-    createSurveySubmit() {
-        //grabing the title and desctiption of the form 
-        let title = document.forms["CreateSurveyForm"]["surveyTitle"].value;
-        let description = document.forms["CreateSurveyForm"]["desc"].value;
-       // let question = document.forms["CreateSurveyForm"]["questions"].value;
-        const allQuestions= [];
-    
-        for(let i = 1; i > 3; i++){
-             let question = document.forms["CreateSurveyForm"][i].value;
-             allQuestions.push(question);
-             alert(question);
-         }
-        alert(title + " " + description + " " );
+    handleClick = () => {
+        console.log('json', this.json);
     };
 
     render() {
         return (
             <Frame title="Create a New Survey">
-                <form id="CreateSurveyForm" onSubmit={this.createSurveySubmit}>
+                <form id="CreateSurveyForm" action="php/CreateSurveyAction.php">
                     <Stack
                         direction="column"
                         justifyContent="space-between"
@@ -85,6 +83,9 @@ class CreateSurvey extends React.Component {
                                     id="surveyTitle"
                                     placeholder="Enter your Survey Title"
                                     mb={2}
+                                    onChange={(e) => {
+                                        this.json.title = e.target.value;
+                                    }}
                                 />
                             </FormControl>
                             <FormControl>
@@ -97,21 +98,21 @@ class CreateSurvey extends React.Component {
                                     id="desc"
                                     placeholder="Enter the survey Description"
                                     mb={2}
+                                    onChange={(e) => {
+                                        this.json.description = e.target.value;
+                                    }}
                                 ></Textarea>
                             </FormControl>
-                            <FormControl>
-                                <FormLabel htmlFor="question">
-                                    Questions
-                                </FormLabel>
-
-                                <QuestionList questions={this.questions} />
-                            </FormControl>
+                            <QuestionList questions={this.questions} />
                         </Box>
                         <Button
                             aria-label="Add Question"
                             colorScheme="green"
                             leftIcon={<AddIcon />}
-                            onClick={this.addQuestion}
+                            onClick={()=> {
+                                this.addQuestion();
+                                this.forceUpdate();
+                            }}
                         >
                             Add Question
                         </Button>
@@ -123,8 +124,7 @@ class CreateSurvey extends React.Component {
 
                             <Button
                                 colorScheme="purple"
-                                type="submit"
-                                value="submit"
+                                onClick={this.handleClick}
                             >
                                 Create Survey
                             </Button>
@@ -139,5 +139,3 @@ class CreateSurvey extends React.Component {
 CreateSurvey.defaultProps = { questions: [] };
 
 export { CreateSurvey };
-
-
