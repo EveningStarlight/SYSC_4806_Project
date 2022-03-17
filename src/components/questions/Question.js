@@ -15,9 +15,11 @@ class Question extends React.Component {
         super(props);
         this.type = this.props.type;
     }
+
     makeOption = (value) => {
         return <option value={value}>{value}</option>;
     };
+
     render() {
         return (
             <ListItem
@@ -42,11 +44,14 @@ class Question extends React.Component {
                 <FormControl>
                     <HStack>
                         {this.type === 'text' ? (
-                            <InputText />
+                            <InputText json={this.props.json} />
                         ) : this.type === 'number' ? (
-                            <InputNumber />
+                            <InputNumber json={this.props.json} />
                         ) : this.type === 'choice' ? (
-                            <InputChoice idPrefix={this.props.id} />
+                            <InputChoice
+                                idPrefix={this.props.id}
+                                json={this.props.json}
+                            />
                         ) : (
                             <></>
                         )}

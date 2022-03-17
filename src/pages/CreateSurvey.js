@@ -18,13 +18,17 @@ class CreateSurvey extends React.Component {
     constructor(props) {
         super(props);
         this.nextId = 1;
+        this.questions = [];
 
-        const id = [this.getNextId(), this.getNextId(), this.getNextId()];
-        this.questions = [
-            <Question id={id[0]} delete={this.removeQuestion} type="text" />,
-            <Question id={id[1]} delete={this.removeQuestion} type="number" />,
-            <Question id={id[2]} delete={this.removeQuestion} type="choice" />,
-        ];
+        this.json = {
+            title: '',
+            description: '',
+            questions: {},
+        };
+
+        this.addQuestion('text');
+        this.addQuestion('number');
+        this.addQuestion('choice');
     }
 
     getNextId = () => {
@@ -33,25 +37,31 @@ class CreateSurvey extends React.Component {
         return id;
     };
 
-    addQuestion = () => {
+    addQuestion = (type) => {
+        const id = this.getNextId();
+        this.json.questions[id] = {};
         this.questions.push(
             <Question
-                id={this.nextId}
-                key={this.nextId.toString()}
+                id={id}
+                key={id}
+                json={this.json.questions[id]}
                 delete={this.removeQuestion}
-                type="text"
+                type={type ? type : 'text'}
             />,
         );
-        this.nextId += 1;
-        this.forceUpdate();
     };
 
     removeQuestion = (question) => {
+        delete this.json.questions[question.props.id];
         const index = this.questions.findIndex(
             (x) => x.props.id === question.props.id,
         );
         this.questions.splice(index, 1);
         this.forceUpdate();
+    };
+
+    handleClick = () => {
+        console.log('json', this.json);
     };
 
     render() {
@@ -74,6 +84,9 @@ class CreateSurvey extends React.Component {
                                     id="surveyTitle"
                                     placeholder="Enter your Survey Title"
                                     mb={2}
+                                    onChange={(e) => {
+                                        this.json.title = e.target.value;
+                                    }}
                                 />
                             </FormControl>
                             <FormControl>
@@ -86,6 +99,9 @@ class CreateSurvey extends React.Component {
                                     id="desc"
                                     placeholder="Enter the survey Description"
                                     mb={2}
+                                    onChange={(e) => {
+                                        this.json.description = e.target.value;
+                                    }}
                                 ></Textarea>
                             </FormControl>
                             <QuestionList questions={this.questions} />
@@ -94,7 +110,10 @@ class CreateSurvey extends React.Component {
                             aria-label="Add Question"
                             colorScheme="green"
                             leftIcon={<AddIcon />}
-                            onClick={this.addQuestion}
+                            onClick={() => {
+                                this.addQuestion();
+                                this.forceUpdate();
+                            }}
                         >
                             Add Question
                         </Button>
@@ -106,8 +125,7 @@ class CreateSurvey extends React.Component {
 
                             <Button
                                 colorScheme="purple"
-                                type="submit"
-                                value="submit"
+                                onClick={this.handleClick}
                             >
                                 Create Survey
                             </Button>
