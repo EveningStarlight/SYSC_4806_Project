@@ -43,7 +43,7 @@ class CreateSurvey extends React.Component {
         this.questions.push(
             <Question
                 id={id}
-                key={id}
+                key={id + '-Question'}
                 json={this.json.questions[id]}
                 delete={this.removeQuestion}
                 type={type ? type : 'text'}
