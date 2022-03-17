@@ -17,19 +17,23 @@ class Question extends React.Component {
     }
 
     makeOption = (value) => {
-        return <option value={value}>{value}</option>;
+        return (
+            <option value={value} key={value}>
+                {value}
+            </option>
+        );
     };
 
     render() {
         return (
             <ListItem
+                key={this.props.id + '-ListItem'}
                 role="question"
                 p={4}
                 my={4}
                 border="2px"
                 borderColor="purple.200"
                 borderRadius={10}
-                key={this.props.id}
             >
                 <Select
                     mb={3}
