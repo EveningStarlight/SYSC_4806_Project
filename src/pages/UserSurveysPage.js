@@ -1,6 +1,6 @@
 import { Stack } from '@chakra-ui/react';
 import { Frame } from '../components/frame';
-var database = require('../src/database/data.json');
+var database = require('../database/data.json');
 var list = database.tables;
 
 function DisplaySurveys() {
