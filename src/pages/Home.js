@@ -18,6 +18,11 @@ function Home() {
                         Complete Survey
                     </Button>
                 </RouteLink>
+				<RouteLink to="/UserSurvey">
+                    <Button m={3} colorScheme="purple">
+                        See Survey
+                    </Button>
+                </RouteLink>
             </VStack>
         </Frame>
     );

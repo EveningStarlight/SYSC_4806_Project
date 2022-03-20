@@ -5,7 +5,7 @@ import theme from '../theme/theme';
 import { Home } from '../pages/Home';
 import { AnswerSurvey } from '../pages/AnswerSurvey';
 import { CreateSurvey } from '../pages/CreateSurvey';
-
+import { UserSurvey } from '../pages/UserSurveyPage';
 import {
     BrowserRouter as Router,
     Routes,
@@ -26,6 +26,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/survey" element={<AnswerSurvey />} />
                     <Route path="/createSurvey" element={<CreateSurvey />} />
+                    <Route path="/UserSurvey" element={<UserSurvey />} />
                 </Routes>
             </Router>
         </ChakraProvider>
