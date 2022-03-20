@@ -20,7 +20,7 @@ function Home() {
                 </RouteLink>
 				<RouteLink to="/UserSurvey">
                     <Button m={3} colorScheme="purple">
-                        See Survey
+                        See Surveys
                     </Button>
                 </RouteLink>
             </VStack>
