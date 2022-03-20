@@ -1,5 +1,5 @@
 import { Stack } from '@chakra-ui/react';
-import { Frame } from '../frame';
+import { Frame } from '../components/frame';
 var database = require('../src/database/data.json');
 var list = database.tables;
 
