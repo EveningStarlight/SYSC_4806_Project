@@ -9,7 +9,7 @@ import {
     Textarea,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
-import { Link as RouteLink } from 'react-router-dom';
+import { Link as RouteLink, BrowserRouter as Router } from 'react-router-dom';
 
 import { Frame } from '../components/frame';
 import { Question } from '../components/questions/Question';
@@ -123,15 +123,16 @@ class CreateSurvey extends React.Component {
                             <Button id="resetButton" type="reset" value="reset">
                                 Reset
                             </Button>
-
-                            <RouteLink to="/SurveyCreated">
-                                <Button
-                                    colorScheme="purple"
-                                    onClick={this.handleClick}
-                                >
-                                    Create Survey
-                                </Button>
-                            </RouteLink>
+                            <Router>
+                                <RouteLink to="/SurveyCreated">
+                                    <Button
+                                        colorScheme="purple"
+                                        onClick={this.handleClick}
+                                    >
+                                        Create Survey
+                                    </Button>
+                                </RouteLink>
+                            </Router>
                         </Stack>
                     </Stack>
                 </form>
