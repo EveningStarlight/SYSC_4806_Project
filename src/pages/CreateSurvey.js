@@ -11,7 +11,6 @@ import {
 import { AddIcon } from '@chakra-ui/icons';
 import { Link as RouteLink } from 'react-router-dom';
 
-
 import { Frame } from '../components/frame';
 import { Question } from '../components/questions/Question';
 import { QuestionList } from '../components/questions/QuestionList';
@@ -124,7 +123,7 @@ class CreateSurvey extends React.Component {
                             <Button id="resetButton" type="reset" value="reset">
                                 Reset
                             </Button>
-                            
+
                             <RouteLink to="/SurveyCreated">
                                 <Button
                                     colorScheme="purple"
@@ -133,7 +132,6 @@ class CreateSurvey extends React.Component {
                                     Create Survey
                                 </Button>
                             </RouteLink>
-                            
                         </Stack>
                     </Stack>
                 </form>

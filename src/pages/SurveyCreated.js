@@ -2,11 +2,9 @@ import { Box, VStack, Input, Button } from '@chakra-ui/react';
 import { Frame } from '../components/frame';
 import { Link as RouteLink } from 'react-router-dom';
 
-
-
 function SurveyCreated() {
     return (
-        <Frame title="Thank You!" >
+        <Frame title="Thank You!">
             <Box m={3}>Thank You for creating a survey!</Box>
             <Box m={3}>Your survey has been saved.</Box>
 
@@ -26,4 +24,4 @@ function SurveyCreated() {
     );
 }
 
-export { SurveyCreated };  
+export { SurveyCreated };
