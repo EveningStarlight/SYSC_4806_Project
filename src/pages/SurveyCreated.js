@@ -1,7 +1,6 @@
 import { Box, VStack, Button } from '@chakra-ui/react';
 import { Frame } from '../components/frame';
 import { Link as RouteLink } from 'react-router-dom';
-
 function SurveyCreated() {
     return (
         <Frame title="Thank You!">
