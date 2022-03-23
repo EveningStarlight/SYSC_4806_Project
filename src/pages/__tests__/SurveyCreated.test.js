@@ -8,6 +8,6 @@ test('Redirect to Survey Created Form Page', () => {
             <SurveyCreated />
         </Router>,
     );
-    const pageTitle = screen.getByText(/Thank You!/i);
+    const pageTitle = screen.getByText(/Survey Created!/i);
     expect(pageTitle).toBeInTheDocument();
 });
