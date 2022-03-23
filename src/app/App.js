@@ -29,7 +29,10 @@ function App() {
                     <Route path="/survey" element={<AnswerSurvey />} />
                     <Route path="/createSurvey" element={<CreateSurvey />} />
                     <Route path="/surveyCreated" element={<SurveyCreated />} />
-                    <Route path="/surveyAnswered" element={<SurveyAnswered />} />
+                    <Route
+                        path="/surveyAnswered"
+                        element={<SurveyAnswered />}
+                    />
                 </Routes>
             </Router>
         </ChakraProvider>
