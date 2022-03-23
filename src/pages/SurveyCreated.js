@@ -1,4 +1,4 @@
-import { Box, VStack, Input, Button } from '@chakra-ui/react';
+import { Box, VStack, Button } from '@chakra-ui/react';
 import { Frame } from '../components/frame';
 import { Link as RouteLink } from 'react-router-dom';
 
