@@ -7,10 +7,18 @@ function DisplaySurveys() {
     return (
         <Frame title="Your Surveys:">
             <div id="tables">
-                <Stack direction="row" justifyContent="space-between">
-					<p>{database.title}</p>
-					<p>{database.description}</p>
-                </Stack>
+				<table>
+					<th> 
+						<td>
+							"Survey Name:" 
+						</td>
+					</th>
+					
+					<Stack direction="row" justifyContent="space-between">
+						<p>{database.title}</p>
+						<p>{database.description}</p>
+					</Stack>
+				</table>
             </div>
         </Frame>
     );
