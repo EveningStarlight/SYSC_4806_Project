@@ -4,7 +4,6 @@ import { FormLabel, Stack, Radio, RadioGroup } from '@chakra-ui/react';
 function ResponceChoice(props) {
     const question = props.question;
     const key = props.qKey + 'input';
-    let value = '';
 
     return (
         <>
