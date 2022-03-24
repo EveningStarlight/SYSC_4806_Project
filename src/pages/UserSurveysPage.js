@@ -9,17 +9,19 @@ function DisplaySurveys() {
             <div id="tables">
 				<table>
 					<thead> 
-						<tr>
-							<td>
-								Survey Name 
-							</td>
-							<td>
-								Survey Description" 
-							</td>
-							<td>
-								Survey Details 
-							</td>
-						</tr>
+						<Stack direction="row" justifyContent="space-between">
+							<tr>
+								<td>
+									Survey Name 
+								</td>
+								<td>
+									Survey Description 
+								</td>
+								<td>
+									Survey Details 
+								</td>
+							</tr>
+						</Stack>
 					</thead>
 					<tbody>
 						<Stack direction="row" justifyContent="space-between">
