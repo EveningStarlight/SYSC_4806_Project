@@ -8,7 +8,7 @@ function DisplaySurveys() {
         <Frame title="Your Surveys:">
             <div id="tables">
 				<table>
-					<th> 
+					<thead> 
 						<td>
 							Survey Name 
 						</td>
@@ -19,13 +19,14 @@ function DisplaySurveys() {
 							Survey Details 
 						</td>
 					</th>
-					
-					<Stack direction="row" justifyContent="space-between">
-						<tr>
-							<p>{database.title}</p>
-							<p>{database.description}</p>
-						</tr>
-					</Stack>
+					<tbody>
+						<Stack direction="row" justifyContent="space-between">
+							<tr>
+								<td><p>{database.title}</p></td>
+								<td><p>{database.description}</p></td>
+							</tr>
+						</Stack>
+					</tbody>
 				</table>
             </div>
         </Frame>
