@@ -8,7 +8,7 @@ function SurveyAnswered() {
             <Box m={3}>Your reponse has been saved.</Box>
 
             <VStack m={3}>
-                <RouteLink to="/AnswerSurvey">
+                <RouteLink to="/survey">
                     <Button m={3} colorScheme="purple">
                         Submit Another Response
                     </Button>
