@@ -26,7 +26,7 @@ function App() {
                 </Flex>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/survey" element={<AnswerSurvey />} />
+                    <Route path="/survey/:id" element={<AnswerSurvey />} />
                     <Route path="/createSurvey" element={<CreateSurvey />} />
                     <Route path="/surveyCreated" element={<SurveyCreated />} />
                     <Route

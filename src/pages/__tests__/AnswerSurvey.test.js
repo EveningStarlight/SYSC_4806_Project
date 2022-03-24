@@ -1,9 +1,24 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { Route, Routes, MemoryRouter } from 'react-router-dom';
+import { ChakraProvider, theme } from '@chakra-ui/react';
 import { AnswerSurvey } from '../AnswerSurvey';
 
-test('Redirect to Answer Survey Form Page', () => {
-    render(<AnswerSurvey />, { wrapper: MemoryRouter });
-    const linkElement = screen.getByText(/a simple survey asking your name!/i);
-    expect(linkElement).toBeInTheDocument();
+test('Renders the test survey page', () => {
+    render(
+        <ChakraProvider>
+            <MemoryRouter initialEntries={[`/survey/test`]}>
+                <Routes>
+                    <Route path="/survey/:id" element={<AnswerSurvey />} />
+                </Routes>
+            </MemoryRouter>
+        </ChakraProvider>,
+    );
+    const description = screen.getByText(/The default test survey/i);
+    expect(description).toBeInTheDocument();
+
+    const question = screen.getByText(/How many stars is Subway?/i);
+    expect(question).toBeInTheDocument();
+
+    const choice = screen.getByText(/Vanilla/i);
+    expect(choice).toBeInTheDocument();
 });
