@@ -15,9 +15,7 @@ function AnswerSurvey() {
 
     return (
         <Frame title={survey.title}>
-            <form
-                id="AnswerSurveyForm"
-            >
+            <form id="AnswerSurveyForm">
                 <VStack m={3}>
                     <Box>{survey.description}</Box>
                     {renderQuestions(survey.questions)}
@@ -29,8 +27,8 @@ function AnswerSurvey() {
                                 value="submit"
                                 colorScheme="purple"
                                 onClick={() => {
-                                    answerSurveySubmit(survey)
-                                    }}
+                                    answerSurveySubmit(survey);
+                                }}
                             >
                                 Submit
                             </Button>
@@ -91,14 +89,13 @@ function getTestSurvey() {
 
 export { AnswerSurvey };
 
-function answerSurveySubmit (survey) {
-    let answer = []
-    for (const question in survey.questions){
-        answer.push(survey.questions[question].value)
+function answerSurveySubmit(survey) {
+    let answer = [];
+    for (const question in survey.questions) {
+        answer.push(survey.questions[question].value);
     }
     console.log(answer);
     survey.answers.push(answer);
     console.log(survey);
     //write this to the answers in the json
-    
 }

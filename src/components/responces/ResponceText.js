@@ -10,7 +10,12 @@ function ResponceText(props) {
             <FormLabel htmlFor={key} fontSize="xl" fontWeight="extrabold">
                 {question.question}
             </FormLabel>
-            <Input onChange={(v) => question.value=v.target.value} type="text" id={key} placeholder="Enter a Responce" />
+            <Input
+                onChange={(v) => (question.value = v.target.value)}
+                type="text"
+                id={key}
+                placeholder="Enter a Responce"
+            />
         </>
     );
 }
