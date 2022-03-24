@@ -22,7 +22,7 @@ function AnswerSurvey() {
                 <VStack m={3}>
                     <Box>{survey.description}</Box>
                     {renderQuestions(survey.questions)}
-                    <RouteLink to="/">
+                    <RouteLink to="/SurveyAnswered">
                         <VStack direction="row" justifyContent="end" mt={4}>
                             <Button
                                 ml="auto"
