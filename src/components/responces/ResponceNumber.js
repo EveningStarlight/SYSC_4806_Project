@@ -33,7 +33,7 @@ function ResponceNumber(props) {
                 onChange={(v) => setSliderValue(v)}
                 onMouseEnter={() => setShowTooltip(true)}
                 onMouseLeave={() => setShowTooltip(false)}
-                onChangeEnd={(val) => console.log(val)}
+                onChangeEnd={(val) => (question.value = val)}
             >
                 {generateTicks(min, max, key)}
                 <SliderTrack>

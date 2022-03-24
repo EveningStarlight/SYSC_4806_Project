@@ -10,7 +10,7 @@ function ResponceChoice(props) {
             <FormLabel htmlFor={key} fontSize="xl" fontWeight="extrabold">
                 {question.question}
             </FormLabel>
-            <RadioGroup onChange={(v) => console.log('v: ', v)}>
+            <RadioGroup onChange={(v) => (question.value = v)}>
                 <Stack>{renderRadio(question.choices)}</Stack>
             </RadioGroup>
         </>

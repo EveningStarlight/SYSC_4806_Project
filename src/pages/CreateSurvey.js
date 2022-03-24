@@ -25,6 +25,7 @@ class CreateSurvey extends React.Component {
             title: '',
             description: '',
             questions: {},
+            answers: {},
         };
 
         this.addQuestion('text');
