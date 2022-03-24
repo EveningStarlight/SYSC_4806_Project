@@ -12,6 +12,12 @@ function DisplaySurveys() {
 						<td>
 							"Survey Name:" 
 						</td>
+						<td>
+							"Survey Description:" 
+						</td>
+						<td>
+							"Survey Details:" 
+						</td>
 					</th>
 					
 					<Stack direction="row" justifyContent="space-between">
