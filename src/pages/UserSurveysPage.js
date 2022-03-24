@@ -9,7 +9,7 @@ function DisplaySurveys() {
             <div id="tables">
 				<table>
 					<thead> 
-						<Stack direction="row" justifyContent="space-between">
+						<Stack direction="row" divider={<Divider orientation="vertical" flexItem />}  spacing={2}>
 							<tr>
 								<td>
 									Survey Name 
