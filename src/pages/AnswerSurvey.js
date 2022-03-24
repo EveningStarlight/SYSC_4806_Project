@@ -14,7 +14,7 @@ function AnswerSurvey() {
                         {survey.Q1}
                         <Input type="text" placeholder={survey.Q1} mb={2} />
 
-                        <RouteLink to="/">
+                        <RouteLink to="/SurveyAnswered">
                             <VStack direction="row" justifyContent="end" mt={4}>
                                 <Button
                                     ml="auto"
