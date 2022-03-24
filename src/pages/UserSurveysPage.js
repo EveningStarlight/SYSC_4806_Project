@@ -10,19 +10,21 @@ function DisplaySurveys() {
 				<table>
 					<th> 
 						<td>
-							"Survey Name:" 
+							Survey Name 
 						</td>
 						<td>
-							"Survey Description:" 
+							Survey Description" 
 						</td>
 						<td>
-							"Survey Details:" 
+							Survey Details 
 						</td>
 					</th>
 					
 					<Stack direction="row" justifyContent="space-between">
-						<p>{database.title}</p>
-						<p>{database.description}</p>
+						<tr>
+							<p>{database.title}</p>
+							<p>{database.description}</p>
+						</tr>
 					</Stack>
 				</table>
             </div>
