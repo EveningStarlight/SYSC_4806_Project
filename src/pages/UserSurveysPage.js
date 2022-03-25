@@ -15,20 +15,30 @@ function DisplaySurveys() {
                         </Th>
                     </Tr>
                 </Thead>
-                <Tbody>
-                    <Tr justifycontent="space-evenly">
-                        <Td>{database.title}</Td>
-                        <Td>{database.description}</Td>
-                        <Td style={{ textAlign: 'center' }}>
-                            <Button m={3} colorScheme="purple">
-                                See Details
-                            </Button>
-                        </Td>
-                    </Tr>
-                </Tbody>
+                <Tbody>{renderRows(database.surveys)}</Tbody>
             </Table>
         </Frame>
     );
+}
+
+function renderRows(surveys) {
+    const list = [];
+    for (const key in surveys) {
+        const survey = surveys[key];
+        list.push(
+            <Tr justifycontent="space-evenly" key={key}>
+                <Td>{survey.title}</Td>
+                <Td>{survey.description}</Td>
+                <Td style={{ textAlign: 'center' }}>
+                    <Button m={3} colorScheme="purple">
+                        See Details
+                    </Button>
+                </Td>
+            </Tr>,
+        );
+    }
+
+    return list;
 }
 
 export { DisplaySurveys };
