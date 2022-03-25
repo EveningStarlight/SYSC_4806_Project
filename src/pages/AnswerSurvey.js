@@ -1,4 +1,4 @@
-import { Box, VStack, Button } from '@chakra-ui/react';
+import { Box, Center, VStack, Button } from '@chakra-ui/react';
 import { Frame } from '../components/frame';
 import { Link as RouteLink, useParams } from 'react-router-dom';
 import { Responce } from '../components/responces/Responce';
@@ -8,7 +8,13 @@ function AnswerSurvey() {
     const { id } = useParams();
     const survey = getSurvey(id);
 
-    return (
+    return !survey ? (
+        <Frame>
+            <Center fontWeight="bold" fontSize="xl">
+                There was no survey found with the id: {id}
+            </Center>
+        </Frame>
+    ) : (
         <Frame title={survey.title}>
             <form id="AnswerSurveyForm">
                 <VStack m={3}>

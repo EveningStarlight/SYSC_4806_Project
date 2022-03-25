@@ -10,6 +10,7 @@ import { DisplaySurveys } from '../pages/UserSurveysPage';
 import { SurveyCreated } from '../pages/SurveyCreated';
 import { SurveyAnswered } from '../pages/SurveyAnswered';
 import { Answers } from '../pages/Answers';
+import { MissingPage } from '../pages/MissingPage';
 
 import {
     BrowserRouter as Router,
@@ -39,6 +40,7 @@ function App() {
                         path="/surveyAnswered"
                         element={<SurveyAnswered />}
                     />
+                    <Route path="*" element={<MissingPage />} />
                 </Routes>
             </Router>
         </ChakraProvider>
