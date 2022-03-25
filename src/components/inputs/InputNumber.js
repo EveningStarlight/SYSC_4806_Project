@@ -9,6 +9,7 @@ class InputNumber extends React.Component {
         this.json.type = 'number';
         this.json.max = '';
         this.json.min = '';
+        this.json.answers = [];
     }
 
     render() {
