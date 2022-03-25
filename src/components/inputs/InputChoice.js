@@ -15,6 +15,7 @@ class InputChoice extends React.Component {
         this.json.question = '';
         this.json.type = 'choice';
         this.json.choices = {};
+        this.json.answers = [];
 
         this.addChoice();
         this.addChoice();

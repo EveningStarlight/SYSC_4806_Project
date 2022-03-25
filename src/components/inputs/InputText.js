@@ -7,6 +7,7 @@ class InputText extends React.Component {
         this.json = this.props.json;
         this.json.question = '';
         this.json.type = 'text';
+        this.json.answers = [];
     }
 
     render() {
