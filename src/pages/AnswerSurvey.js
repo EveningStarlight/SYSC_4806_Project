@@ -47,8 +47,6 @@ function getSurvey(id) {
     return database.surveys[id];
 }
 
-export { AnswerSurvey };
-
 function answerSurveySubmit(survey) {
     let answer = [];
     for (const question in survey.questions) {
@@ -59,3 +57,5 @@ function answerSurveySubmit(survey) {
     console.log(survey);
     //write this to the answers in the json
 }
+
+export { AnswerSurvey };
