@@ -14,7 +14,7 @@ function AnswerSurvey() {
                 <VStack m={3}>
                     <Box>{survey.description}</Box>
                     {renderQuestions(survey.questions)}
-                    <RouteLink to="/SurveyAnswers2">
+                    <RouteLink to="/SurveyAnswered">
                         <VStack direction="row" justifyContent="end" mt={4}>
                             <Button
                                 ml="auto"
@@ -47,15 +47,11 @@ function getSurvey(id) {
     return database.surveys[id];
 }
 
-export { AnswerSurvey };
-
 function answerSurveySubmit(survey) {
-    let answer = [];
-    for (const question in survey.questions) {
-        answer.push(survey.questions[question].value);
+    for (const key in survey.questions) {
+        const question = survey.questions[key];
+        question.answers.push(question.value);
     }
-    console.log(answer);
-    survey.answers.push(answer);
-    console.log(survey);
-    //write this to the answers in the json
 }
+
+export { AnswerSurvey };
