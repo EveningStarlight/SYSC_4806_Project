@@ -2,16 +2,11 @@ import { Box, VStack, Button } from '@chakra-ui/react';
 import { Frame } from '../components/frame';
 import { Link as RouteLink, useParams } from 'react-router-dom';
 import { Responce } from '../components/responces/Responce';
+var database = require('../database/data.json');
 
 function AnswerSurvey() {
     const { id } = useParams();
-
-    let survey = {};
-    if (id === 'test') {
-        survey = getTestSurvey();
-    } else {
-        survey = getSurvey(id);
-    }
+    const survey = getSurvey(id);
 
     return (
         <Frame title={survey.title}>
@@ -49,42 +44,7 @@ function renderQuestions(questions) {
 }
 
 function getSurvey(id) {
-    return {};
-}
-
-function getTestSurvey() {
-    return {
-        title: 'Test Survey',
-        description: 'The default test survey',
-        questions: {
-            'Q-1': {
-                question: 'What is your name?',
-                type: 'text',
-            },
-            'Q-2': {
-                question: 'How many stars is Subway?',
-                type: 'number',
-                max: '3',
-                min: '0',
-            },
-            'Q-3': {
-                question: 'Favourite ice cream flavour?',
-                type: 'choice',
-                choices: {
-                    'Q-3-Ch-1': {
-                        choice: 'Vanilla',
-                    },
-                    'Q-3-Ch-2': {
-                        choice: 'Chocolate',
-                    },
-                    'Q-3-Ch-3': {
-                        choice: 'Mint',
-                    },
-                },
-            },
-        },
-        answers: [],
-    };
+    return database.surveys[id];
 }
 
 export { AnswerSurvey };
