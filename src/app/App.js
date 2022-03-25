@@ -4,6 +4,7 @@ import theme from '../theme/theme';
 
 import { Home } from '../pages/Home';
 import { AnswerSurvey } from '../pages/AnswerSurvey';
+import { AnswerSurveyTemp } from '../pages/AnswerSurveyTemp';
 import { CreateSurvey } from '../pages/CreateSurvey';
 import { DisplaySurveys } from '../pages/UserSurveysPage';
 import { SurveyCreated } from '../pages/SurveyCreated';
@@ -28,6 +29,7 @@ function App() {
                 </Flex>
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/survey" element={<AnswerSurveyTemp />} />
                     <Route path="/survey/:id" element={<AnswerSurvey />} />
                     <Route path="/createSurvey" element={<CreateSurvey />} />
                     <Route path="/answers/:id" element={<Answers />} />
