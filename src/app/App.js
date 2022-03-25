@@ -5,7 +5,12 @@ import theme from '../theme/theme';
 import { Home } from '../pages/Home';
 import { AnswerSurvey } from '../pages/AnswerSurvey';
 import { CreateSurvey } from '../pages/CreateSurvey';
+
 import { DisplaySurveys } from '../pages/UserSurveysPage';
+import { SurveyCreated } from '../pages/SurveyCreated';
+import { SurveyAnswered } from '../pages/SurveyAnswered';
+
+
 import {
     BrowserRouter as Router,
     Routes,
@@ -24,9 +29,16 @@ function App() {
                 </Flex>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/survey" element={<AnswerSurvey />} />
+                    <Route path="/survey/:id" element={<AnswerSurvey />} />
                     <Route path="/createSurvey" element={<CreateSurvey />} />
                     <Route path="/UserSurvey" element={<DisplaySurveys />} />
+
+                    <Route path="/surveyCreated" element={<SurveyCreated />} />
+                    <Route
+                        path="/surveyAnswered"
+                        element={<SurveyAnswered />}
+                    />
+
                 </Routes>
             </Router>
         </ChakraProvider>

@@ -13,7 +13,7 @@ function Home() {
                         New Survey
                     </Button>
                 </RouteLink>
-                <RouteLink to="/survey">
+                <RouteLink to="/survey/test">
                     <Button m={3} colorScheme="purple">
                         Complete Survey
                     </Button>
