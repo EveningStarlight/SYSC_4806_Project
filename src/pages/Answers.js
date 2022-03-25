@@ -46,7 +46,7 @@ function renderRows(survey) {
         list.push(
             <Tr justifycontent="space-evenly" key={key}>
                 <Td>{question.question}</Td>
-                <Td>{question.answers}</Td>
+                <Td>{question.answers.join(', ')}</Td>
             </Tr>,
         );
     }
