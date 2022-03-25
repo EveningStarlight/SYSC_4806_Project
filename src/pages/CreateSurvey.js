@@ -65,7 +65,7 @@ class CreateSurvey extends React.Component {
     handleClick = () => {
 	var database = require("../database/data.json");
         console.log('json', this.json);
-	database.surveys.push(this.json);
+	database["surveys"][this.json.title] = (this.json);
 	console.log(database);
     };
 
