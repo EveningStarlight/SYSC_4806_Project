@@ -1,30 +1,19 @@
 import { Frame } from '../components/frame';
-import {
-    Table,
-    Thead,
-    Tbody,
-    Tfoot,
-    Tr,
-    Th,
-    Td,
-    TableCaption,
-    Button,
-} from '@chakra-ui/react';
+import { Table, Thead, Tbody, Tr, Th, Td, Button } from '@chakra-ui/react';
 var database = require('../database/data.json');
-var list = database.tables;
 
 function DisplaySurveys() {
     return (
         <Frame title="Your Surveys:">
             <div id="tables">
-                <Table>
-                    <Thead fontWeight='bold'>
+                <Table variant="striped">
+                    <Thead>
                         <Tr>
-                            <Td>Survey Names</Td>
-                            <Td>Survey Descriptions</Td>
-                            <Td style={{ textAlign: 'center' }}>
+                            <Th fontSize="lg">Survey Names</Th>
+                            <Th fontSize="lg">Survey Descriptions</Th>
+                            <Th fontSize="lg" style={{ textAlign: 'center' }}>
                                 Survey Details
-                            </Td>
+                            </Th>
                         </Tr>
                     </Thead>
                     <Tbody>

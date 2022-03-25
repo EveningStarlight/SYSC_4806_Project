@@ -10,7 +10,6 @@ import { DisplaySurveys } from '../pages/UserSurveysPage';
 import { SurveyCreated } from '../pages/SurveyCreated';
 import { SurveyAnswered } from '../pages/SurveyAnswered';
 
-
 import {
     BrowserRouter as Router,
     Routes,
@@ -38,7 +37,6 @@ function App() {
                         path="/surveyAnswered"
                         element={<SurveyAnswered />}
                     />
-
                 </Routes>
             </Router>
         </ChakraProvider>
