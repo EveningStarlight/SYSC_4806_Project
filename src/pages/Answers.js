@@ -1,4 +1,4 @@
-import { Box, VStack, Button } from '@chakra-ui/react';
+import { Box, Center, VStack, Button } from '@chakra-ui/react';
 import { Frame } from '../components/frame';
 import { Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
 import { Link as RouteLink, useParams } from 'react-router-dom';
@@ -8,7 +8,13 @@ function Answers() {
     const { id } = useParams();
     const survey = getSurvey(id);
 
-    return (
+    return !survey ? (
+        <Frame>
+            <Center fontWeight="bold" fontSize="xl">
+                There was no survey found with the id: {id}
+            </Center>
+        </Frame>
+    ) : (
         <Frame title="Survey Answers!">
             <Box m={3}>All of you answers to your survey</Box>
 
