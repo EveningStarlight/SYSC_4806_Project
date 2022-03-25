@@ -7,14 +7,14 @@
                 "Q-1": {
                     "question": "What is your name?",
                     "type": "text",
-                    "answers": ["test", " ", "Jayton"]
+                    "answers": ["test", "Jayton"]
                 },
                 "Q-2": {
                     "question": "How many stars is Subway?",
                     "type": "number",
                     "max": "3",
                     "min": "0",
-                    "answers": [0, " ", 1]
+                    "answers": [0, 1]
                 },
                 "Q-3": {
                     "question": "Favourite ice cream flavour?",
@@ -30,7 +30,7 @@
                             "choice": "Mint"
                         }
                     },
-                    "answers": ["Vanilla", " ", "Mint"]
+                    "answers": ["Vanilla", "Mint"]
                 }
             }
         },
