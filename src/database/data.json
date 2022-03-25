@@ -1,7 +1,92 @@
 {
-    "title": "What is your name",
-    "description": "a simple survey asking your name!",
-    "numOfQs": 1,
-    "Q1": "what is your name?",
-    "Q1Answers": []
+    "surveys": {
+        "test": {
+            "title": "Test Survey",
+            "description": "The default test survey",
+            "questions": {
+                "Q-1": {
+                    "question": "What is your name?",
+                    "type": "text"
+                },
+                "Q-2": {
+                    "question": "How many stars is Subway?",
+                    "type": "number",
+                    "max": "3",
+                    "min": "0"
+                },
+                "Q-3": {
+                    "question": "Favourite ice cream flavour?",
+                    "type": "choice",
+                    "choices": {
+                        "Q-3-Ch-1": {
+                            "choice": "Vanilla"
+                        },
+                        "Q-3-Ch-2": {
+                            "choice": "Chocolate"
+                        },
+                        "Q-3-Ch-3": {
+                            "choice": "Mint"
+                        }
+                    }
+                }
+            }
+        },
+        "pets": {
+            "title": "Pets",
+            "description": "A simple survey about your pets",
+            "questions": {
+                "Q-1": {
+                    "question": "Do you own any pets?",
+                    "type": "choice",
+                    "choices": {
+                        "Q-1-Ch-1": { "choice": "Yes" },
+                        "Q-1-Ch-2": { "choice": "No" }
+                    }
+                },
+                "Q-2": {
+                    "question": "How many?",
+                    "type": "number",
+                    "max": "10",
+                    "min": "0",
+                    "choices": { "Q-2-Ch-1": {}, "Q-2-Ch-2": {} }
+                },
+                "Q-3": {
+                    "question": "What is your favourite animal?",
+                    "type": "choice",
+                    "choices": {
+                        "Q-3-Ch-1": { "choice": "Cat" },
+                        "Q-3-Ch-2": { "choice": "Dog" },
+                        "Q-3-Ch-3": { "choice": "Turtle" },
+                        "Q-3-Ch-4": { "choice": "Panda" },
+                        "Q-3-Ch-5": { "choice": "Bunny" },
+                        "Q-3-Ch-6": { "choice": "Fish" }
+                    }
+                },
+                "Q-4": {
+                    "question": "Tell me a story about a Pet",
+                    "type": "text"
+                }
+            }
+        },
+        "movie": {
+            "title": "Movies",
+            "description": "A simple movie survey!",
+            "questions": {
+                "Q-4": {
+                    "question": "What is your favourite movie?",
+                    "type": "text"
+                },
+                "Q-6": {
+                    "question": "What is your least favourite movie?",
+                    "type": "text"
+                },
+                "Q-7": {
+                    "question": "How do you score \"A New Hope\"?",
+                    "type": "number",
+                    "max": "10",
+                    "min": "1"
+                }
+            }
+        }
+    }
 }
