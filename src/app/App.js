@@ -29,7 +29,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/survey" element={<AnswerSurveyTemp />} />
-					<Route path="/survey/:id" element={<AnswerSurvey />} />
+                    <Route path="/survey/:id" element={<AnswerSurvey />} />
                     <Route path="/createSurvey" element={<CreateSurvey />} />
                     <Route path="/UserSurvey" element={<DisplaySurveys />} />
                     <Route path="/surveyCreated" element={<SurveyCreated />} />
