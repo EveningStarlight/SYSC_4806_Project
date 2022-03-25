@@ -1,5 +1,6 @@
 import { Frame } from '../components/frame';
 import { Table, Thead, Tbody, Tr, Th, Td, Button } from '@chakra-ui/react';
+import { Link as RouteLink } from 'react-router-dom';
 var database = require('../database/data.json');
 
 function DisplaySurveys() {
@@ -25,14 +26,17 @@ function renderRows(surveys) {
     const list = [];
     for (const key in surveys) {
         const survey = surveys[key];
+        let route = '/Answers/' + key;
         list.push(
             <Tr justifycontent="space-evenly" key={key}>
                 <Td>{survey.title}</Td>
                 <Td>{survey.description}</Td>
                 <Td style={{ textAlign: 'center' }}>
-                    <Button m={3} colorScheme="purple">
-                        See Details
-                    </Button>
+                    <RouteLink to={route}>
+                        <Button m={3} colorScheme="purple">
+                            See Details
+                        </Button>
+                    </RouteLink>
                 </Td>
             </Tr>,
         );
