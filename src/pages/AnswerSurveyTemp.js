@@ -1,6 +1,5 @@
 import { Frame } from '../components/frame';
 import { Table, Thead, Tbody, Tr, Th, Td, Button } from '@chakra-ui/react';
-import { AnswerSurvey } from '../pages/AnswerSurvey';
 import { Link as RouteLink } from 'react-router-dom';
 
 var database = require('../database/data.json');
@@ -25,7 +24,6 @@ function AnswerSurveyTemp() {
 function renderRows(surveys) {
     const list = [];
     for (const key in surveys) {
-        const survey = surveys[key];
         list.push(
             <Tr justifycontent="space-evenly">
                 <Td> {key} </Td>
