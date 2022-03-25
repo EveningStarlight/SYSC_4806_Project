@@ -30,7 +30,6 @@ function App() {
                     <Route path="/survey/:id" element={<AnswerSurvey />} />
                     <Route path="/createSurvey" element={<CreateSurvey />} />
                     <Route path="/UserSurvey" element={<DisplaySurveys />} />
-
                     <Route path="/surveyCreated" element={<SurveyCreated />} />
                     <Route
                         path="/surveyAnswered"
