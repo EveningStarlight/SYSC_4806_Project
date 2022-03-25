@@ -8,6 +8,7 @@ import { CreateSurvey } from '../pages/CreateSurvey';
 import { DisplaySurveys } from '../pages/UserSurveysPage';
 import { SurveyCreated } from '../pages/SurveyCreated';
 import { SurveyAnswered } from '../pages/SurveyAnswered';
+import { Answers } from '../pages/Answers';
 
 import {
     BrowserRouter as Router,
@@ -29,6 +30,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/survey/:id" element={<AnswerSurvey />} />
                     <Route path="/createSurvey" element={<CreateSurvey />} />
+                    <Route path="/answers/:id" element={<Answers />} />
                     <Route path="/UserSurvey" element={<DisplaySurveys />} />
                     <Route path="/surveyCreated" element={<SurveyCreated />} />
                     <Route
