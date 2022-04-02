@@ -1,4 +1,5 @@
 {
+    "isLoggedIn": true,
     "surveys": {
         "test": {
             "title": "Test Survey",
