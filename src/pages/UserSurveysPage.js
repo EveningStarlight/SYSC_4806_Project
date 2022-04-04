@@ -2,8 +2,22 @@ import { Frame } from '../components/frame';
 import { Table, Thead, Tbody, Tr, Th, Td, Button } from '@chakra-ui/react';
 import { Link as RouteLink } from 'react-router-dom';
 var database = require('../database/data.json');
+var MongoClient = require('mongodb').MongoClient;
+const connection =
+    'mongodb+srv://user:password124@surveygorilla.zlnea.mongodb.net/SurveyGorilla?retryWrites=true&w=majority';
 
 function DisplaySurveys() {
+	var surveys;
+	MongoClient.connect(connection, function(err, db) {
+		if (err) throw err;
+		var dbo = db.db("SurveyGorilla");
+		dbo.collection("surveys").find({}).toJSON(function(err, result) {
+			if (err) throw err;
+			console.log(result);
+			surveys = result;
+			db.close();
+		});
+	});
     return (
         <Frame title="Your Surveys:">
             <Table variant="striped">
@@ -16,7 +30,7 @@ function DisplaySurveys() {
                         </Th>
                     </Tr>
                 </Thead>
-                <Tbody>{renderRows(database.surveys)}</Tbody>
+                <Tbody>{renderRows(surveys)}</Tbody>
             </Table>
         </Frame>
     );
