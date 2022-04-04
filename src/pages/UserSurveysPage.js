@@ -1,8 +1,9 @@
 import { Frame } from '../components/frame';
 import { Table, Thead, Tbody, Tr, Th, Td, Button } from '@chakra-ui/react';
 import { Link as RouteLink } from 'react-router-dom';
-var database = require('../database/data.json');
 import axios from 'axios';
+var database = require('../database/data.json');
+
 
 function DisplaySurveys() {
 	var surveyList;
