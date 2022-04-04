@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {
     Box,
     Button,
@@ -68,29 +68,19 @@ class CreateSurvey extends React.Component {
         console.log('json', this.json);
         database['surveys'][this.json.title] = this.json;
         console.log(database);
-		const [surveys, setSurveys] = useState(null);
-		const [title, setTitle] = useState("");
-		const [description, setDescription] = useState("");
-		const [questions, setQuestions] = useState("");
-		useEffect(() => {
-			axios
-				.get("/api/surveys")
-				.then((surveys) => setSurveys(surveys))
-				.catch((err) => console.log(err));
-		}, []);
-		axios
-			.post("/api/surveys", {
-				title: this.json.title,
-				description: this.json.description,
-				questions: this.json.questions
-			})
-			.then(function () {
-				alert("Survey created successfully");
-				window.location.reload();
-			})
-			.catch(function () {
-				alert("Could not create survey. Please try again");
-			});
+        axios
+            .post('/api/surveys', {
+                title: this.json.title,
+                description: this.json.description,
+                questions: this.json.questions,
+            })
+            .then(function () {
+                alert('Survey created successfully');
+                window.location.reload();
+            })
+            .catch(function () {
+                alert('Could not create survey. Please try again');
+            });
     };
 
     render() {

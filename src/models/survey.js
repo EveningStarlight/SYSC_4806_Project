@@ -4,15 +4,15 @@ const Schema = mongoose.Schema;
 const surveySchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: true,
     },
     description: {
         type: String,
-        required: true
+        required: true,
     },
-	questions: {
-		type: [],
-		required: true
-	}
-})
-module.exports = mongoose.model("Survey", userSchema, "surveys")
+    questions: {
+        type: [],
+        required: true,
+    },
+});
+module.exports = mongoose.model('Survey', surveySchema, 'surveys');
