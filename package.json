@@ -18,7 +18,7 @@
         "cors": "^2.8.5",
         "express": "^4.17.3",
         "formik": "^2.2.9",
-        "framer-motion": "^6.2.8",
+        "framer-motion": "3.10.5",
         "mongoose": "^6.2.9",
         "nodemon": "^2.0.15",
         "react": "^17.0.0",
