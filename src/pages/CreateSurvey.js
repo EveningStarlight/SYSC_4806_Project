@@ -14,7 +14,6 @@ import { Link as RouteLink } from 'react-router-dom';
 import { Frame } from '../components/frame';
 import { Question } from '../components/questions/Question';
 import { QuestionList } from '../components/questions/QuestionList';
-import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 
 class CreateSurvey extends React.Component {
