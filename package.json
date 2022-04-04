@@ -27,9 +27,12 @@
         "yup": "^0.32.11"
     },
     "scripts": {
-		"start": "react-scripts start",
-        "start": "node src/backend/server.js",
-        "build": "react-scripts build",
+        "build": "npm run build",
+		"install": npm install",
+		heroku-postbuild": "npm run install && npm run build",
+		"server": "nodemon src/backend/server.js",
+		"develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start \"",
+        "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start \"",
         "test": "react-scripts test --maxWorkers=2 --ci --coverage --reporters=default --reporters=jest-junit",
         "eject": "react-scripts eject",
         "prettier": "prettier **.md **.js **.json **.yml **.html --write",
