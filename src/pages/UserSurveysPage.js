@@ -9,7 +9,7 @@ function DisplaySurveys() {
 	var surveyList;
 	axios
 			.get("/api/surveys")
-			.then((surveys) => console.log(surveys.data))
+			.then((surveys) => surveyList = surveys.data)
 			.catch((err) => console.log(err));
     return (
         <Frame title="Your Surveys:">
@@ -23,7 +23,7 @@ function DisplaySurveys() {
                         </Th>
                     </Tr>
                 </Thead>
-                <Tbody>{renderRows(database.surveys)}</Tbody>
+                <Tbody>{renderRows(surveyList)}</Tbody>
             </Table>
         </Frame>
     );
