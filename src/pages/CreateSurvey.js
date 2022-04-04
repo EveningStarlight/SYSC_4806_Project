@@ -71,7 +71,7 @@ class CreateSurvey extends React.Component {
 		const [surveys, setSurveys] = useState(null);
 		const [title, setTitle] = useState("");
 		const [description, setDescription] = useState("");
-		const [questions, setQuestions} = useState("");
+		const [questions, setQuestions] = useState("");
 		useEffect(() => {
 			axios
 				.get("/api/surveys")
