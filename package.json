@@ -11,8 +11,13 @@
         "@chakra-ui/react": "^1.8.6",
         "@emotion/react": "^11",
         "@emotion/styled": "^11",
+        "axois": "^0.0.1-security",
+        "body-parser": "^1.20.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.3",
         "formik": "^2.2.9",
         "framer-motion": "^6.2.8",
+        "mongoose": "^6.2.9",
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
         "react-router-dom": "^6.2.2",
@@ -26,7 +31,9 @@
         "test": "react-scripts test --maxWorkers=2 --ci --coverage --reporters=default --reporters=jest-junit",
         "eject": "react-scripts eject",
         "prettier": "prettier **.md **.js **.json **.yml **.html --write",
-        "lint:prettier": "prettier --check **.md **.js **.json **.yml **.html"
+        "lint:prettier": "prettier --check **.md **.js **.json **.yml **.html",
+		"start": "node backend/server.js",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -60,5 +67,6 @@
         "titleTemplate": "{classname}-{title}",
         "ancestorSeparator": " › ",
         "usePathForSuiteName": "true"
-    }
+    },
+	"proxy": "http://localhost:5000"
 }
