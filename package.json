@@ -11,6 +11,7 @@
         "@chakra-ui/react": "^1.8.6",
         "@emotion/react": "^11",
         "@emotion/styled": "^11",
+        "axios": "^0.26.1",
         "axois": "^0.0.1-security",
         "body-parser": "^1.20.0",
         "cors": "^2.8.5",
@@ -26,13 +27,12 @@
         "yup": "^0.32.11"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "node src/backend/server.js",
         "build": "react-scripts build",
         "test": "react-scripts test --maxWorkers=2 --ci --coverage --reporters=default --reporters=jest-junit",
         "eject": "react-scripts eject",
         "prettier": "prettier **.md **.js **.json **.yml **.html --write",
-        "lint:prettier": "prettier --check **.md **.js **.json **.yml **.html",
-		"start": "node src/backend/server.js"
+        "lint:prettier": "prettier --check **.md **.js **.json **.yml **.html"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -67,5 +67,5 @@
         "ancestorSeparator": " › ",
         "usePathForSuiteName": "true"
     },
-	"proxy": "http://localhost:5000"
+    "proxy": "http://localhost:5000"
 }
