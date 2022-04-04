@@ -32,7 +32,7 @@
         "eject": "react-scripts eject",
         "prettier": "prettier **.md **.js **.json **.yml **.html --write",
         "lint:prettier": "prettier --check **.md **.js **.json **.yml **.html",
-		"start": "node src/backend/server.js",
+		"start": "node src/backend/server.js"
     },
     "eslintConfig": {
         "extends": "react-app"
