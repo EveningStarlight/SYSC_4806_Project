@@ -9,7 +9,7 @@ function DisplaySurveys() {
 	var surveyList;
 	axios
 			.get("/api/surveys")
-			.then((surveys) => console.log(surveys))
+			.then((surveys) => console.log(surveys.data))
 			.catch((err) => console.log(err));
     return (
         <Frame title="Your Surveys:">
