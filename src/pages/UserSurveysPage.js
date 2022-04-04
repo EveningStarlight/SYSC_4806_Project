@@ -7,10 +7,11 @@ var database = require('../database/data.json');
 
 function DisplaySurveys() {
 	var surveyList;
-	axios
-			.get("/api/surveys")
-			.then((surveys) => surveyList = surveys.data)
-			.catch((err) => console.log(err));
+	getAllSurveys()
+		.then(data => {
+			surveyList = data;
+			console.log(surveyList);
+		});
     return (
         <Frame title="Your Surveys:">
             <Table variant="striped">
@@ -27,6 +28,15 @@ function DisplaySurveys() {
             </Table>
         </Frame>
     );
+}
+
+function getAllSurveys(){
+	return axios
+			.get("/api/surveys")
+			.then((surveys) => {
+				console.log(surveys.data)
+				return surveys.data
+				})
 }
 
 function renderRows(surveys) {
