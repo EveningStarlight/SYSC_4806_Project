@@ -1,4 +1,5 @@
 import { Frame } from '../components/frame';
+import { useState} from 'react';
 import { Table, Thead, Tbody, Tr, Th, Td, Button } from '@chakra-ui/react';
 import { Link as RouteLink } from 'react-router-dom';
 import axios from 'axios';
@@ -6,10 +7,10 @@ var database = require('../database/data.json');
 
 
 function DisplaySurveys() {
-	var surveyList;
+	const [surveyList, setSurveyList] = useState([]);
 	getAllSurveys()
 		.then(data => {
-			surveyList = data;
+			setSurveyList(data);
 			console.log(surveyList);
 		});
     return (
