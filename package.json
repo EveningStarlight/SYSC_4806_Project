@@ -28,7 +28,7 @@
     },
     "scripts": {
         "build": "npm run build",
-		"install": npm install",
+		"install": "npm install",
 		heroku-postbuild": "npm run install && npm run build",
 		"server": "nodemon src/backend/server.js",
 		"develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start \"",
