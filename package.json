@@ -33,7 +33,7 @@
         "prettier": "prettier **.md **.js **.json **.yml **.html --write",
         "lint:prettier": "prettier --check **.md **.js **.json **.yml **.html",
 		"start": "node backend/server.js",
-        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build && yarn install"
     },
     "eslintConfig": {
         "extends": "react-app"
