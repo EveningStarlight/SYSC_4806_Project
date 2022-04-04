@@ -14,6 +14,7 @@ import { Link as RouteLink } from 'react-router-dom';
 import { Frame } from '../components/frame';
 import { Question } from '../components/questions/Question';
 import { QuestionList } from '../components/questions/QuestionList';
+import axios from 'axios';
 
 class CreateSurvey extends React.Component {
     constructor(props) {
@@ -67,6 +68,19 @@ class CreateSurvey extends React.Component {
         console.log('json', this.json);
         database['surveys'][this.json.title] = this.json;
         console.log(database);
+        axios
+            .post('/api/surveys', {
+                title: this.json.title,
+                description: this.json.description,
+                questions: this.json.questions,
+            })
+            .then(function () {
+                alert('Survey created successfully');
+                window.location.reload();
+            })
+            .catch(function () {
+                alert('Could not create survey. Please try again');
+            });
     };
 
     render() {
