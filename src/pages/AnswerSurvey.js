@@ -51,9 +51,7 @@ function AnswerSurvey() {
 
 function renderQuestions(questions) {
     const list = [];
-    console.log(questions);
-    for (const key in questions[0]) {
-        console.log(key);
+    for (const key in questions) {
         list.push(<Responce key={key} qKey={key} question={questions[key]} />);
         
     }
