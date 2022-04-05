@@ -70,9 +70,9 @@ function answerSurveySubmit(survey) {
         const question = survey.questions[key];
         question.answers.push(question.value);
     }
+	console.log(survey);
     axios
             .post('/api/surveys/' + survey.title, {
-                _id: survey._id,
                 title: survey.title,
                 description: survey.description,
                 questions: survey.questions,
