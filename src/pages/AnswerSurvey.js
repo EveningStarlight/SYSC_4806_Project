@@ -58,7 +58,7 @@ function renderQuestions(questions) {
 function getSurvey(id) {
     return axios.get('/api/surveys').then((surveys) => {
         for (const key in surveys.data) {
-            if (id == surveys.data[key].title) {
+            if (id === surveys.data[key].title) {
                 return surveys.data[key];
             }
         }

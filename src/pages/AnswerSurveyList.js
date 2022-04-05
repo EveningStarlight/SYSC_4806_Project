@@ -4,7 +4,6 @@ import { Table, Thead, Tbody, Tr, Th, Td, Button } from '@chakra-ui/react';
 import { Link as RouteLink } from 'react-router-dom';
 import axios from 'axios';
 
-var database = require('../database/data.json');
 function AnswerSurveyList() {
     const [surveyList, setSurveyList] = useState(null);
     useEffect(() => {
