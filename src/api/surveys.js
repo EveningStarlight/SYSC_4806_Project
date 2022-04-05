@@ -16,8 +16,12 @@ router.post('/:title', (req, res) => {
 		description: description,
 		questions: questions,
 	});
+
+    var upsertData = newSurvey.toObject();
+    delete upsertData._id;
+
     Survey
-        .replaceOne({"title": req.params.title}, newSurvey, {upsert: true})
+        .replaceOne({title: newSurvey.title}, upsertData, {upsert: true})
         .then(() =>
             res.json({
                 message: 'Created survey successfully',
