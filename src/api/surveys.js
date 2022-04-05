@@ -9,15 +9,16 @@ router.get('/', (req, res) => {
         .catch((err) => console.log(err));
 });
 
-router.post('/', (req, res) => {
-    const { title, description, questions } = req.body;
+router.post('/:title', (req, res) => {
+    const { _id, title, description, questions } = req.body;
     const newSurvey = new Survey({
+        _id: _id,
         title: title,
         description: description,
         questions: questions,
     });
     newSurvey
-        .save()
+        .save({title:req.params.title})
         .then(() =>
             res.json({
                 message: 'Created survey successfully',

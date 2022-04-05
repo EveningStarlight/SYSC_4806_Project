@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 function AnswerSurvey() {
     const { id } = useParams();
     const [survey, setSurvey] = useState(null);
-    useEffect((id) => {
+    useEffect(() => {
         getSurvey(id).then((data) => {
             setSurvey(data);
         });
@@ -70,6 +70,21 @@ function answerSurveySubmit(survey) {
         const question = survey.questions[key];
         question.answers.push(question.value);
     }
-}
+    axios
+            .post('/api/surveys/' + survey.title, {
+                _id: survey._id,
+                title: survey.title,
+                description: survey.description,
+                questions: survey.questions,
+            })
+            .then(function () {
+                alert('Answers saved successfully');
+                window.location.reload();
+            })
+            .catch(function () {
+                alert('Could not save answers. Please try again');
+            });
+    }
+
 
 export { AnswerSurvey };
