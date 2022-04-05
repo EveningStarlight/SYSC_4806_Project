@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 function AnswerSurvey() {
     const { id } = useParams();
     const [survey, setSurvey] = useState(null);
-    useEffect(() => {
+    useEffect((id) => {
         getSurvey(id).then((data) => {
             setSurvey(data);
         });
