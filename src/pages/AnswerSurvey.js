@@ -57,7 +57,7 @@ function renderQuestions(questions) {
 
 function getSurvey(id) {
     return axios.get('/api/surveys').then((surveys) => {
-        console.log(surveys.data)
+        console.log(surveys.data);
         for (const key in surveys.data) {
             if (id === surveys.data[key].title) {
                 return surveys.data[key];
@@ -71,22 +71,20 @@ function answerSurveySubmit(survey) {
         const question = survey.questions[key];
         question.answers.push(question.value);
     }
-    console.log(survey.questions)
+    console.log(survey.questions);
     axios
-            .post('/api/surveys/' + survey.title, {
-                title: survey.title,
-                description: survey.description,
-                questions: survey.questions,
-            })
-            .then(function () {
-                alert('Answers saved successfully');
-                window.location.reload();
-                
-            })
-            .catch(function () {
-                alert('Could not save answers. Please try again');
-            });
-    }
-
+        .post('/api/surveys/' + survey.title, {
+            title: survey.title,
+            description: survey.description,
+            questions: survey.questions,
+        })
+        .then(function () {
+            alert('Answers saved successfully');
+            window.location.reload();
+        })
+        .catch(function () {
+            alert('Could not save answers. Please try again');
+        });
+}
 
 export { AnswerSurvey };
