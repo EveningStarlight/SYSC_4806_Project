@@ -12,7 +12,7 @@ function AnswerSurvey() {
         getSurvey(id).then((data) => {
             setSurvey(data);
         });
-    }, []);
+    }, [id]);
 
     return !survey ? (
         <Frame>
