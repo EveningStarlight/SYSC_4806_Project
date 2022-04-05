@@ -7203,7 +7203,7 @@
   optionalDependencies:
     "saslprep" "^1.0.3"
 
-"mongoose@^6.2.9":
+"mongoose@^6.2.10":
   "integrity" "sha512-Yp+6UH5M0AlxAVGdC2/Deq0St+2qW73oKCnhJDr83bOZ12eflTLTT5uQF0p6KzvtFj86XWbq/7ApvO4yW6h1sA=="
   "resolved" "https://registry.npmjs.org/mongoose/-/mongoose-6.2.10.tgz"
   "version" "6.2.10"

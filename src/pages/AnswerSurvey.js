@@ -4,8 +4,6 @@ import { Link as RouteLink, useParams } from 'react-router-dom';
 import { Responce } from '../components/responces/Responce';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import survey from '../models/survey';
-var database = require('../database/data.json');
 
 function AnswerSurvey() {
     const { id } = useParams();
