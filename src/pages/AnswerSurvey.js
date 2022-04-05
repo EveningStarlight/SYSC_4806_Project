@@ -53,15 +53,14 @@ function renderQuestions(questions) {
     const list = [];
     for (const key in questions) {
         list.push(<Responce key={key} qKey={key} question={questions[key]} />);
-        
     }
     return list;
 }
 
 function getSurvey(id) {
     return axios.get('/api/surveys').then((surveys) => {
-        for(const key in surveys.data){     
-            if(id == surveys.data[key].title){
+        for (const key in surveys.data) {
+            if (id == surveys.data[key].title) {
                 return surveys.data[key];
             }
         }
