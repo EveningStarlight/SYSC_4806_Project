@@ -96,11 +96,11 @@ function createChart(question) {
 		labels.forEach(function(value, key) {
 			data.push( { x: key, y: value} );
 		})
-		console.log(data);
 		list.push(
 			<VictoryPie
 				data={data}
-				radius={100}
+				colorScale={["blue", "yellow", "red"]}
+				radius={50}
 			/>
 	  );
 	}
@@ -108,12 +108,7 @@ function createChart(question) {
 		// create histogram
 		list.push(
 				<Td>
-					<Histogram
-						xLabels={generateXAxis(question) } // X AXIS
-						yValues={generateYAxis(question) } // DATA      Y axis auto?
-						width='400'
-						height='200'
-					/>
+				{generateHistogram(question)}
 				</Td>
 		);		   
 	}
@@ -121,7 +116,6 @@ function createChart(question) {
 		for (var i = 0; i < question.answers.length; i++){
 			list.push(question.answers[i]+",\n");
 		}
-		console.log(list);
 	}
 
     return list;
@@ -130,30 +124,33 @@ function createChart(question) {
 
 
 
-function generateYAxis(question){
+function generateHistogram(question){
 	const list = [];
-	const counted = new Set();
-	var numberOfOccurances = 0;
+	const labels = new Map();
 	for (var i = 0; i < question.answers.length; i++){
-		var tempAnswer = question.answers[i];
-		if (!counted.has(tempAnswer)){
-			counted.add(tempAnswer);
-			for (var j = 0; j < question.answers.length; j++){
-				if (tempAnswer === question.answers[j]){
-					numberOfOccurances++;
-				}
-			}
-			list.push(numberOfOccurances);
+		if (!labels.has(question.answers[i])){
+			labels.set(question.answers[i], 1);
+		}
+		else{
+			labels.set(question.answers[i], (labels.get(question.answers[i])+1));
 		}
 	}
-	
-	
-	return list;
-	
-}
-
-function generateXAxis(question){
-	const list = [];
-	for(var i = question.min; i <= question.max; i++){list.push(i)}
+	const xAxis = [];
+	const yAxis = [];
+	let keyIter = labels.keys();
+	let valueIter = labels.value();
+	for (var i = 0; i < labels.size(); i++){
+		xAxis.push(keyIter.next().value);
+		yAxis.push(valueIter.next().value);
+		yAxis.push(valueIter.next().value);
+	}
+	list.push(
+		<Histogram
+			xLabels={ xAxis } // X AXIS
+			yValues={ yAxis } // DATA      Y axis auto?
+			width='400'
+			height='200'
+		/>
+	);
 	return list;
 }
