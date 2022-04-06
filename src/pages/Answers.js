@@ -58,7 +58,7 @@ function renderRows(survey) {
         list.push(
             <Tr justifycontent="space-evenly" key={key}>
                 <Td>{question.question}</Td>
-                <Td>{createCharts(question)}</Td>
+                <Td>{createChart(question)}</Td>
             </Tr>,
         );
     }
@@ -76,7 +76,7 @@ function getSurvey(id) {
     });
 }
 
-function createCharts(question) {
+function createChart(question) {
 	const list = [];
 
 	if (question.type === 'choice' ){
@@ -95,7 +95,9 @@ function createCharts(question) {
 				</Td>
 		);		   
 	}
-
+	else if ( question.type === 'text' ){
+		list = question.answers;
+	}
 
     return list;
 }
