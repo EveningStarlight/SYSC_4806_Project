@@ -5,6 +5,7 @@ const Crypto = require('crypto');
 const User = require('../models/user');
 
 
+
 router.get('/', (req, res) => {
     User.find()
         .then((users) => res.json(users))
@@ -13,8 +14,11 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const { email, password } = req.body;
+    const salt = Crypto.randomBytes(16);
     const newUser = new User({
         email: email, password: password
+        //salt: salt,
+        //passwordHash: Crypto.createHmac('sha256', password + salt),
     })
     newUser.save()
         .then(() => res.json({
