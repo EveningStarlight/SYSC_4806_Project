@@ -96,7 +96,7 @@ function createChart(question) {
 		);		   
 	}
 	else if ( question.type === 'text' ){
-		list = question.answers;
+		list.concat(question.answers);
 	}
 
     return list;
