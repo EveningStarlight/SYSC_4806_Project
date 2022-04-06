@@ -8,7 +8,11 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    password: {
+    salt: {
+        type: String,
+        required: true,
+    },
+    passwordHash: {
         type: String,
         required: true,
     },

@@ -3,7 +3,7 @@ var database = require('../database/data.json');
 
 let signUp = (results) => {
     axios
-        .post('/api/users', {
+        .post('/api/users/createUser', {
             email: results.email,
             password: results.password,
         })
@@ -13,6 +13,12 @@ let signUp = (results) => {
         .catch((err) => {
             alert('Could not create Account. Please try again');
         });
+};
+
+const getUsers = () => {
+    return axios.get('/api/users/').then((users) => {
+        return users.data;
+    });
 };
 
 function isUserLoggedin() {
