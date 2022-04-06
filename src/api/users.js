@@ -3,17 +3,16 @@ const router = express.Router();
 const Crypto = require('crypto');
 
 const User = require('../models/user');
-
-router.get('/', (req, res) => {
-    User.find()
-        .then((users) => res.json(users))
-        .catch((err) => console.log(err));
-});
+const { mainModule } = require('process');
 
 router.post('/:type', (req, res) => {
-    const type = req.params.type;
-    if (type === 'createUser') {
-        createUser(req, res);
+    switch (req.params.type) {
+        case 'createUser':
+            createUser(req, res);
+            break;
+        case 'signin':
+            signin(req, res);
+            break;
     }
 });
 
@@ -40,6 +39,21 @@ const createUser = (req, res) => {
                 message: 'Error creating account',
             }),
         );
+};
+
+const signin = (req, res) => {
+    const { email, password } = req.body;
+
+    User.findOne({ email: email })
+        .then((user) => {
+            const hmac = Crypto.createHmac('sha256', user.salt);
+            const hash = hmac.update(password);
+            const passwordHash = hmac.digest('hex');
+            return passwordHash === user.passwordHash
+                ? res.json(true)
+                : res.json(false);
+        })
+        .catch((err) => console.log(err));
 };
 
 module.exports = router;
