@@ -72,7 +72,7 @@ function answerSurveySubmit(survey) {
         question.answers.push(question.value);
     }
     console.log(survey.questions);
-	document.cookie = survey.title;
+    document.cookie = survey.title;
     axios
         .post('/api/surveys/' + survey.title, {
             title: survey.title,
