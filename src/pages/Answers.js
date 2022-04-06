@@ -100,7 +100,7 @@ function createChart(question) {
 			<VictoryPie
 				data={data}
 				colorScale={["blue", "yellow", "red"]}
-				radius={50}
+				radius={150}
 			/>
 	  );
 	}
@@ -141,6 +141,7 @@ function generateHistogram(question){
 		}
 	}
 	var sortedLabels = new Map([...labels.entries()].sort());
+	console.log(sortedLabes);
 	const xAxis = [];
 	const yAxis = [];
 	let keyIter = sortedLabels.keys();
@@ -150,6 +151,8 @@ function generateHistogram(question){
 		yAxis.push(valueIter.next().value);
 		yAxis.push(valueIter.next().value);
 	}
+	console.log(xAxis);
+	console.log(yAxis);
 	list.push(
 		<Histogram
 			xLabels={ xAxis } // X AXIS
