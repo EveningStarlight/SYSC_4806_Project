@@ -5,6 +5,7 @@ import { Link as RouteLink, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Histogram from 'react-chart-histogram';
+import { VictoryPie } from "victory-pie";
 
 var database = require('../database/data.json');
 
@@ -75,12 +76,33 @@ function getSurvey(id) {
         }
     });
 }
-
+function checkExists
 function createChart(question) {
 	const list = [];
 
 	if (question.type === 'choice' ){
-	   // Create pi chart 
+		// Create pi chart 
+		const labels = new Map();
+		for (var i = 0; i < question.answers.length; i++){
+			if (!labels.has(question.answers[i]){
+				labels.set(question.answers[i], 1);
+			}
+			else{
+				labels.set(question.answers[i], (labels.get(question.answers[i])+1));
+			}
+		}
+		const data = [];
+		
+		labels.forEach(function(value, key) {
+			data.push( { x: key, y: value} );
+		})
+		console.log(data);
+		list.push(
+			<VictoryPie
+				data={data}
+				radius={100}
+			/>
+	  );
 	}
 	else if ( question.type === 'number' ){
 		// create histogram
