@@ -2,11 +2,20 @@ import { Box, Center, VStack, Button } from '@chakra-ui/react';
 import { Frame } from '../components/frame';
 import { Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
 import { Link as RouteLink, useParams } from 'react-router-dom';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import Histogram from 'react-chart-histogram';
+
 var database = require('../database/data.json');
 
 function Answers() {
-    const { id } = useParams();
-    const survey = getSurvey(id);
+const { id } = useParams();
+    const [survey, setSurvey] = useState(null);
+    useEffect(() => {
+        getSurvey(id).then((data) => {
+            setSurvey(data);
+        });
+    }, [id]);
 
     return !survey ? (
         <Frame>
@@ -22,7 +31,7 @@ function Answers() {
                 <Thead>
                     <Tr>
                         <Th fontSize="lg">Question</Th>
-                        <Th fontSize="lg">Answers</Th>
+                        <Th fontSize="lg">Charts</Th>
                     </Tr>
                 </Thead>
                 <Tbody>{renderRows(survey)}</Tbody>
@@ -41,9 +50,6 @@ function Answers() {
 
 export { Answers };
 
-function getSurvey(id) {
-    return database.surveys[id];
-}
 
 function renderRows(survey) {
     const list = [];
@@ -52,10 +58,75 @@ function renderRows(survey) {
         list.push(
             <Tr justifycontent="space-evenly" key={key}>
                 <Td>{question.question}</Td>
-                <Td>{question.answers.join(', ')}</Td>
+                <Td>{createCharts(question)}</Td>
             </Tr>,
         );
     }
+    return list;
+}
+
+function getSurvey(id) {
+    return axios.get('/api/surveys').then((surveys) => {
+        console.log(surveys.data);
+        for (const key in surveys.data) {
+            if (id === surveys.data[key].title) {
+                return surveys.data[key];
+            }
+        }
+    });
+}
+
+function createCharts(question) {
+	const list = [];
+
+	if (question.type === 'choice' ){
+	   // Create pi chart 
+	}
+	else if ( question.type === 'number' ){
+		// create histogram
+		list.push(
+				<Td>
+					<Histogram
+						xLabels={generateXAxis(question) } // X AXIS
+						yValues={generateYAxis(question) } // DATA      Y axis auto?
+						width='400'
+						height='200'
+					/>
+				</Td>
+		);		   
+	}
+
 
     return list;
+}
+
+
+
+
+function generateYAxis(question){
+	const list = [];
+	const counted = new Set();
+	var numberOfOccurances = 0;
+	for (var i = 0; i < question.answers.length; i++){
+		var tempAnswer = question.answers[i];
+		if (!counted.has(tempAnswer)){
+			counted.add(tempAnswer);
+			for (var j = 0; j < question.answers.length; j++){
+				if (tempAnswer === question.answers[j]){
+					numberOfOccurances++;
+				}
+			}
+			list.push(numberOfOccurances);
+		}
+	}
+	
+	
+	return list;
+	
+}
+
+function generateXAxis(question){
+	const list = [];
+	for(var i = question.min; i <= question.max; i++){list.push(i)}
+	return list;
 }
