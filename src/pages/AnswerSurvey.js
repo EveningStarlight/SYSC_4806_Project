@@ -80,7 +80,6 @@ function answerSurveySubmit(survey) {
         })
         .then(function () {
             alert('Answers saved successfully');
-            window.location.reload();
         })
         .catch(function () {
             alert('Could not save answers. Please try again');
