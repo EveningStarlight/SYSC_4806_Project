@@ -140,11 +140,12 @@ function generateHistogram(question){
 			labels.set(question.answers[i], 0);
 		}
 	}
+	var sortedLabels = new Map([...labels.entries()].sort());
 	const xAxis = [];
 	const yAxis = [];
-	let keyIter = labels.keys();
-	let valueIter = labels.value();
-	for (var i = 0; i < labels.size(); i++){
+	let keyIter = sortedLabels.keys();
+	let valueIter = sortedLabels.value();
+	for (var i = 0; i < sortedLabels.size(); i++){
 		xAxis.push(keyIter.next().value);
 		yAxis.push(valueIter.next().value);
 		yAxis.push(valueIter.next().value);
