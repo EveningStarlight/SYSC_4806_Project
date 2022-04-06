@@ -145,7 +145,7 @@ function generateHistogram(question){
 	const yAxis = [];
 	let keyIter = sortedLabels.keys();
 	let valueIter = sortedLabels.values();
-	for (var i = 0; i < sortedLabels.size(); i++){
+	for (var i = 0; i < sortedLabels.size; i++){
 		xAxis.push(keyIter.next().value);
 		yAxis.push(valueIter.next().value);
 		yAxis.push(valueIter.next().value);
