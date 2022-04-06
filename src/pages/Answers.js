@@ -84,7 +84,7 @@ function createChart(question) {
 		// Create pi chart 
 		const labels = new Map();
 		for (var i = 0; i < question.answers.length; i++){
-			if (!labels.has(question.answers[i]){
+			if (!labels.has(question.answers[i])){
 				labels.set(question.answers[i], 1);
 			}
 			else{
