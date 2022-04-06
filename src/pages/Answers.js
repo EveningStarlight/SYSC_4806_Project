@@ -136,7 +136,7 @@ function generateHistogram(question){
 		}
 	}
 	for(var i = question.min; i <= question.max; i++){
-		if (!labels.has(question.answers[i])){
+		if (!labels.has(i)){
 			labels.set(i, 0);
 		}
 	}
@@ -149,7 +149,6 @@ function generateHistogram(question){
 	for (var i = 0; i < sortedLabels.size; i++){
 		xAxis.push(keyIter.next().value);
 		yAxis.push(valueIter.next().value);
-		yAxis.push(valueIter.next().value);
 	}
 	console.log(xAxis);
 	console.log(yAxis);
@@ -157,7 +156,7 @@ function generateHistogram(question){
 		<Histogram
 			xLabels={ xAxis } // X AXIS
 			yValues={ yAxis } // DATA      Y axis auto?
-			width='400'
+			width=''
 			height='200'
 		/>
 	);
