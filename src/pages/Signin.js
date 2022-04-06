@@ -9,6 +9,7 @@ import {
     schemaToValidation,
 } from '../utilities/fieldRequirements';
 import { toggleSignIn } from '../utilities/login';
+import { logIn } from '../utilities/login';
 
 function Signin() {
     let signIn = (results) => {
@@ -30,11 +31,9 @@ function Signin() {
                         password: '',
                     }}
                     onSubmit={async (values) => {
-                        signIn({
-                            variables: {
-                                userName: values.email,
+                        logIn({
+                                email: values.email,
                                 password: values.password,
-                            },
                         });
                     }}
                 >

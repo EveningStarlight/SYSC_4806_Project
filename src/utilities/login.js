@@ -15,6 +15,16 @@ let signUp = (results) => {
         });
 };
 
+let logIn = (results) => {
+    console.log(results.email)
+    axios
+        .get('/api/users', {email: results.email})
+        .then((users) => {
+            console.log(users.data);
+          //  toggleSignIn();
+        })
+};
+
 function isUserLoggedin() {
     return database.isLoggedIn;
 }
@@ -23,4 +33,4 @@ function toggleSignIn() {
     database.isLoggedIn = !database.isLoggedIn;
 }
 
-export { isUserLoggedin, toggleSignIn, signUp };
+export { isUserLoggedin, toggleSignIn, signUp, logIn};
