@@ -9,15 +9,18 @@ router.get('/', (req, res) => {
         .catch((err) => console.log(err));
 });
 
-router.post('/', (req, res) => {
+router.post('/:title', (req, res) => {
     const { title, description, questions } = req.body;
     const newSurvey = new Survey({
         title: title,
         description: description,
         questions: questions,
     });
-    newSurvey
-        .save()
+
+    var upsertData = newSurvey.toObject();
+    delete upsertData._id;
+
+    Survey.replaceOne({ title: newSurvey.title }, upsertData, { upsert: true })
         .then(() =>
             res.json({
                 message: 'Created survey successfully',
