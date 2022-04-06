@@ -137,7 +137,7 @@ function generateHistogram(question){
 	}
 	for(var i = question.min; i <= question.max; i++){
 		if (!labels.has(question.answers[i])){
-			labels.set(question.answers[i], 0);
+			labels.set(i, 0);
 		}
 	}
 	var sortedLabels = new Map([...labels.entries()].sort());
