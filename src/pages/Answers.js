@@ -97,7 +97,7 @@ function createChart(question) {
 	}
 	else if ( question.type === 'text' ){
 		for (var i = 0; i < question.answers.length; i++){
-			list.push(question.answers[i]);
+			list.push(question.answers[i]+"\n");
 		}
 		console.log(list);
 	}
