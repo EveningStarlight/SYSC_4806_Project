@@ -99,7 +99,7 @@ function createChart(question) {
 		list.push(
 			<VictoryPie
 				data={data}
-				colorScale={["blue", "yellow", "red"]}
+				colorScale={["blue", "yellow", "red", "green", "purple", "pink", "orange","cyan", "white", "black"]}
 				radius={150}
 			/>
 	  );
