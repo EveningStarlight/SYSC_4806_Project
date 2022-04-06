@@ -4,6 +4,12 @@ const Crypto = require('crypto');
 
 const User = require('../models/users');
 
+router.get('/', (req, res) => {
+    User.find()
+        .then((users) => res.json(users))
+        .catch((err) => console.log(err));
+});
+
 router.post('/createUser', (req, res) => {
     const { email, password } = req.body;
     const salt = Crypto.randomBytes(16);
@@ -13,8 +19,7 @@ router.post('/createUser', (req, res) => {
         salt: salt,
         passwordHash: Crypto.createHmac('sha256', password + salt),
     });
-    user.toObject()
-        .save()
+    user.save()
         .then(() =>
             res.json({
                 message: 'User Created Successfully',

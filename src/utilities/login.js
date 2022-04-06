@@ -7,10 +7,10 @@ let signUp = (results) => {
             email: results.email,
             password: results.password,
         })
-        .then(function () {
+        .then(() => {
             alert('Account Created Successfully');
         })
-        .catch(function () {
+        .catch((err) => {
             alert('Could not create Account. Please try again');
         });
 };
