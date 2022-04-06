@@ -141,7 +141,7 @@ function generateHistogram(question){
 		}
 	}
 	var sortedLabels = new Map([...labels.entries()].sort());
-	console.log(sortedLabes);
+	console.log(sortedLabels);
 	const xAxis = [];
 	const yAxis = [];
 	let keyIter = sortedLabels.keys();
