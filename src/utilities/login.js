@@ -15,12 +15,6 @@ let signUp = (results) => {
         });
 };
 
-const getUsers = () => {
-    return axios.get('/api/users/').then((users) => {
-        return users.data;
-    });
-};
-
 function isUserLoggedin() {
     return database.isLoggedIn;
 }
