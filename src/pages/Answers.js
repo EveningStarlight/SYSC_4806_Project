@@ -76,7 +76,7 @@ function getSurvey(id) {
         }
     });
 }
-function checkExists
+
 function createChart(question) {
 	const list = [];
 
