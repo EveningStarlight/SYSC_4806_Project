@@ -3,7 +3,7 @@ var database = require('../database/data.json');
 
 let signUp = (results) => {
     axios
-        .post('/api/users/createUser', {
+        .post('/api/users', {
             email: results.email,
             password: results.password,
         })
