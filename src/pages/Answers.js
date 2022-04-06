@@ -135,6 +135,11 @@ function generateHistogram(question){
 			labels.set(question.answers[i], (labels.get(question.answers[i])+1));
 		}
 	}
+	for(var i = question.min; i <= question.max; i++){
+		if (!labels.has(question.answers[i])){
+			labels.set(question.answers[i], 0);
+		}
+	}
 	const xAxis = [];
 	const yAxis = [];
 	let keyIter = labels.keys();
