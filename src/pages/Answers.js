@@ -118,8 +118,8 @@ function createChart(question) {
         // create histogram
         list.push(<Td>{generateHistogram(question)}</Td>);
     } else if (question.type === 'text') {
-        for (var i = 0; i < question.answers.length; i++) {
-            list.push(question.answers[i] + ',\n');
+        for (var f = 0; f < question.answers.length; f++) {
+            list.push(question.answers[f] + ',\n');
         }
     }
 
@@ -129,19 +129,19 @@ function createChart(question) {
 function generateHistogram(question) {
     const list = [];
     const labels = new Map();
-    for (var i = 0; i < question.answers.length; i++) {
-        if (!labels.has(question.answers[i])) {
-            labels.set(question.answers[i], 1);
+    for (var u = 0; u < question.answers.length; u++) {
+        if (!labels.has(question.answers[u])) {
+            labels.set(question.answers[u], 1);
         } else {
             labels.set(
-                question.answers[i],
-                labels.get(question.answers[i]) + 1,
+                question.answers[u],
+                labels.get(question.answers[u]) + 1,
             );
         }
     }
-    for (var i = question.min; i <= question.max; i++) {
-        if (!labels.has(i)) {
-            labels.set(i, 0);
+    for (var c = question.min; c <= question.max; c++) {
+        if (!labels.has(c)) {
+            labels.set(c, 0);
         }
     }
     var sortedLabels = new Map([...labels.entries()].sort());
@@ -150,7 +150,7 @@ function generateHistogram(question) {
     const yAxis = [];
     let keyIter = sortedLabels.keys();
     let valueIter = sortedLabels.values();
-    for (var i = 0; i < sortedLabels.size; i++) {
+    for (var k = 0; k < sortedLabels.size; k++) {
         xAxis.push(keyIter.next().value);
         yAxis.push(valueIter.next().value);
     }
