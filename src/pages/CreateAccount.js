@@ -5,11 +5,9 @@ import { Formik } from 'formik';
 import { EmailField } from '../components/inputs/EmailField';
 import { PasswordConfirmation } from '../components/inputs/PasswordConfirmation';
 import { createValidationSchema } from '../utilities/fieldRequirements';
+import { signUp } from '../utilities/login';
 
 function CreateAccount() {
-    let signUp = (results) => {
-        console.log('results: ', results);
-    };
     return (
         <Frame title="Create an Account">
             <Formik
@@ -25,11 +23,8 @@ function CreateAccount() {
                 }}
                 onSubmit={async (values) => {
                     signUp({
-                        variables: {
-                            userName: values.email,
-                            password: values.password,
-                            confirmPassword: values.confirmPassword,
-                        },
+                        email: values.email,
+                        password: values.password,
                     });
                 }}
             >
