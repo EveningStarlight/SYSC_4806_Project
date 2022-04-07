@@ -72,7 +72,6 @@ class CreateSurvey extends React.Component {
             })
             .then(function () {
                 alert('Survey created successfully');
-                window.location.reload();
             })
             .catch(function () {
                 alert('Could not create survey. Please try again');
