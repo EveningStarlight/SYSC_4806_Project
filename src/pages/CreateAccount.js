@@ -1,13 +1,18 @@
 import { Box, Button, VStack } from '@chakra-ui/react';
 import { Frame } from '../components/frame';
 import { Formik } from 'formik';
+import { Navigate } from 'react-router-dom';
 
 import { EmailField } from '../components/inputs/EmailField';
 import { PasswordConfirmation } from '../components/inputs/PasswordConfirmation';
 import { createValidationSchema } from '../utilities/fieldRequirements';
-import { signUp } from '../utilities/login';
+import { signUp, isUserLoggedin } from '../utilities/login';
 
-function CreateAccount() {
+function CreateAccount({ setLoggedIn, ...props }) {
+    if (isUserLoggedin()) {
+        return <Navigate to="/" />;
+    }
+
     return (
         <Frame title="Create an Account">
             <Formik
@@ -22,10 +27,11 @@ function CreateAccount() {
                     confirmPassword: '',
                 }}
                 onSubmit={async (values) => {
-                    signUp({
+                    await signUp({
                         email: values.email,
                         password: values.password,
                     });
+                    setLoggedIn(isUserLoggedin());
                 }}
             >
                 {({ handleSubmit, isSubmitting }) => (

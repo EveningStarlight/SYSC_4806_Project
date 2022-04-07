@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Table, Thead, Tbody, Tr, Th, Td, Button } from '@chakra-ui/react';
-import { Link as RouteLink } from 'react-router-dom';
+import { Link as RouteLink, Navigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { Frame } from '../components/frame';
 import { LoadingMessage } from '../components/LoadingMessage';
+import { isUserLoggedin } from '../utilities/login';
 
 function DisplaySurveys() {
     const [surveyList, setSurveyList] = useState(null);
@@ -13,6 +14,9 @@ function DisplaySurveys() {
             setSurveyList(data);
         });
     }, []);
+    if (!isUserLoggedin()) {
+        return <Navigate to="/" />;
+    }
     return (
         <Frame title="Your Surveys:">
             {!surveyList ? (
