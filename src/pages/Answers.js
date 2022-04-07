@@ -70,7 +70,6 @@ function renderRows(survey) {
 
 function getSurvey(id) {
     return axios.get('/api/surveys').then((surveys) => {
-        console.log(surveys.data);
         for (const key in surveys.data) {
             if (id === surveys.data[key].title) {
                 return surveys.data[key];
@@ -149,7 +148,6 @@ function generateHistogram(question) {
         }
     }
     var sortedLabels = new Map([...labels.entries()].sort());
-    console.log(sortedLabels);
     const xAxis = [];
     const yAxis = [];
     let keyIter = sortedLabels.keys();
@@ -158,8 +156,6 @@ function generateHistogram(question) {
         xAxis.push(keyIter.next().value);
         yAxis.push(valueIter.next().value);
     }
-    console.log(xAxis);
-    console.log(yAxis);
     list.push(
         <Histogram
             xLabels={xAxis} // X AXIS
