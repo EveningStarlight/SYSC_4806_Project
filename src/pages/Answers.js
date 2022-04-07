@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react';
 import Histogram from 'react-chart-histogram';
 import { VictoryPie } from 'victory-pie';
 
-
 function Answers() {
     const { id } = useParams();
     const [survey, setSurvey] = useState(null);
