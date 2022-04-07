@@ -45,7 +45,7 @@ function renderRows(surveys) {
     const list = [];
     for (const key in surveys) {
         const survey = surveys[key];
-        let route = '/Answers/' + key;
+        let route = '/Answers/' + survey.title;
         list.push(
             <Tr justifycontent="space-evenly" key={key}>
                 <Td>{survey.title}</Td>
