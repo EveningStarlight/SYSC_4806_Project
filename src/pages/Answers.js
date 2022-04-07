@@ -99,8 +99,8 @@ function createChart(question) {
 		list.push(
 			<VictoryPie
 				data={data}
-				colorScale={["blue", "yellow", "red", "green", "purple", "pink", "orange","cyan", "white", "black"]}
-				radius={150}
+				colorScale={["blue", "yellow", "red", "green", "purple", "orange", "pink","cyan", "white", "black"]}
+				radius={100}
 			/>
 	  );
 	}
@@ -156,7 +156,7 @@ function generateHistogram(question){
 		<Histogram
 			xLabels={ xAxis } // X AXIS
 			yValues={ yAxis } // DATA      Y axis auto?
-			width=''
+			width='400'
 			height='200'
 		/>
 	);
