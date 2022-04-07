@@ -5,12 +5,12 @@ import { Link as RouteLink, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Histogram from 'react-chart-histogram';
-import { VictoryPie } from "victory-pie";
+import { VictoryPie } from 'victory-pie';
 
 var database = require('../database/data.json');
 
 function Answers() {
-const { id } = useParams();
+    const { id } = useParams();
     const [survey, setSurvey] = useState(null);
     useEffect(() => {
         getSurvey(id).then((data) => {
@@ -51,7 +51,6 @@ const { id } = useParams();
 
 export { Answers };
 
-
 function renderRows(survey) {
     const list = [];
     for (const key in survey.questions) {
@@ -78,87 +77,93 @@ function getSurvey(id) {
 }
 
 function createChart(question) {
-	const list = [];
+    const list = [];
 
-	if (question.type === 'choice' ){
-		// Create pi chart 
-		const labels = new Map();
-		for (var i = 0; i < question.answers.length; i++){
-			if (!labels.has(question.answers[i])){
-				labels.set(question.answers[i], 1);
-			}
-			else{
-				labels.set(question.answers[i], (labels.get(question.answers[i])+1));
-			}
-		}
-		const data = [];
-		
-		labels.forEach(function(value, key) {
-			data.push( { x: key, y: value} );
-		})
-		list.push(
-			<VictoryPie
-				data={data}
-				colorScale={["blue", "yellow", "red", "green", "purple", "orange", "pink","cyan", "white", "black"]}
-				radius={100}
-			/>
-	  );
-	}
-	else if ( question.type === 'number' ){
-		// create histogram
-		list.push(
-				<Td>
-				{generateHistogram(question)}
-				</Td>
-		);		   
-	}
-	else if ( question.type === 'text' ){
-		for (var i = 0; i < question.answers.length; i++){
-			list.push(question.answers[i]+",\n");
-		}
-	}
+    if (question.type === 'choice') {
+        // Create pi chart
+        const labels = new Map();
+        for (var i = 0; i < question.answers.length; i++) {
+            if (!labels.has(question.answers[i])) {
+                labels.set(question.answers[i], 1);
+            } else {
+                labels.set(
+                    question.answers[i],
+                    labels.get(question.answers[i]) + 1,
+                );
+            }
+        }
+        const data = [];
+
+        labels.forEach(function (value, key) {
+            data.push({ x: key, y: value });
+        });
+        list.push(
+            <VictoryPie
+                data={data}
+                colorScale={[
+                    'blue',
+                    'yellow',
+                    'red',
+                    'green',
+                    'purple',
+                    'orange',
+                    'pink',
+                    'cyan',
+                    'white',
+                    'black',
+                ]}
+                radius={100}
+            />,
+        );
+    } else if (question.type === 'number') {
+        // create histogram
+        list.push(<Td>{generateHistogram(question)}</Td>);
+    } else if (question.type === 'text') {
+        for (var i = 0; i < question.answers.length; i++) {
+            list.push(question.answers[i] + ',\n');
+        }
+    }
 
     return list;
 }
 
-
-
-
-function generateHistogram(question){
-	const list = [];
-	const labels = new Map();
-	for (var i = 0; i < question.answers.length; i++){
-		if (!labels.has(question.answers[i])){
-			labels.set(question.answers[i], 1);
-		}
-		else{
-			labels.set(question.answers[i], (labels.get(question.answers[i])+1));
-		}
-	}
-	for(var i = question.min; i <= question.max; i++){
-		if (!labels.has(i)){
-			labels.set(i, 0);
-		}
-	}
-	var sortedLabels = new Map([...labels.entries()].sort());
-	console.log(sortedLabels);
-	const xAxis = [];
-	const yAxis = [];
-	let keyIter = sortedLabels.keys();
-	let valueIter = sortedLabels.values();
-	for (var i = 0; i < sortedLabels.size; i++){
-		xAxis.push(keyIter.next().value);
-		yAxis.push(valueIter.next().value);
-	}
-	console.log(xAxis);
-	console.log(yAxis);
-	list.push(
-		<Histogram
-			xLabels={ xAxis } // X AXIS
-			yValues={ yAxis } // DATA      Y axis auto?
-			width='400'
-			height='200'
-		/>
-	);
-	return list;
+function generateHistogram(question) {
+    const list = [];
+    const labels = new Map();
+    for (var i = 0; i < question.answers.length; i++) {
+        if (!labels.has(question.answers[i])) {
+            labels.set(question.answers[i], 1);
+        } else {
+            labels.set(
+                question.answers[i],
+                labels.get(question.answers[i]) + 1,
+            );
+        }
+    }
+    for (var i = question.min; i <= question.max; i++) {
+        if (!labels.has(i)) {
+            labels.set(i, 0);
+        }
+    }
+    var sortedLabels = new Map([...labels.entries()].sort());
+    console.log(sortedLabels);
+    const xAxis = [];
+    const yAxis = [];
+    let keyIter = sortedLabels.keys();
+    let valueIter = sortedLabels.values();
+    for (var i = 0; i < sortedLabels.size; i++) {
+        xAxis.push(keyIter.next().value);
+        yAxis.push(valueIter.next().value);
+    }
+    console.log(xAxis);
+    console.log(yAxis);
+    list.push(
+        <Histogram
+            xLabels={xAxis} // X AXIS
+            yValues={yAxis} // DATA      Y axis auto?
+            width="400"
+            height="200"
+        />,
+    );
+    return list;
 }
