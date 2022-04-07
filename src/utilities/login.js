@@ -1,13 +1,14 @@
 import axios from 'axios';
-var database = require('../database/data.json');
 
-let signUp = (results) => {
-    axios
+let signUp = async (results) => {
+    await axios
         .post('/api/users/createUser', {
             email: results.email,
             password: results.password,
         })
         .then(() => {
+            window.localStorage.setItem('email', results.email);
+            window.localStorage.setItem('loggedIn', true);
             alert('Account Created Successfully');
         })
         .catch((err) => {
@@ -15,22 +16,27 @@ let signUp = (results) => {
         });
 };
 
-let logIn = (results) => {
-    console.log(results.email)
-    axios
-        .get('/api/users', {email: results.email})
-        .then((users) => {
-            console.log(users.data);
-          //  toggleSignIn();
+let signIn = async (results) => {
+    await axios
+        .post('/api/users/signin', {
+            email: results.email,
+            password: results.password,
         })
+        .then((result) => {
+            if (result) {
+                window.localStorage.setItem('email', results.email);
+                window.localStorage.setItem('loggedIn', true);
+            }
+        });
 };
 
-function isUserLoggedin() {
-    return database.isLoggedIn;
-}
+let signOut = () => {
+    window.localStorage.setItem('email', null);
+    window.localStorage.setItem('loggedIn', false);
+};
 
-function toggleSignIn() {
-    database.isLoggedIn = !database.isLoggedIn;
-}
+const isUserLoggedin = () => {
+    return window.localStorage.getItem('loggedIn') === 'true';
+};
 
-export { isUserLoggedin, toggleSignIn, signUp, logIn};
+export { isUserLoggedin, signOut, signUp, signIn };

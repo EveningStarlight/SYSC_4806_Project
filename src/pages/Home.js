@@ -2,14 +2,13 @@ import { VStack, Box, Button } from '@chakra-ui/react';
 import { Link as RouteLink } from 'react-router-dom';
 
 import { Frame } from '../components/frame';
-import { isUserLoggedin } from '../utilities/login';
 
-function Home() {
+function Home({ loggedIn, ...props }) {
     return (
         <Frame title="Survey Gorilla">
             <Box>The goto place for all your survey needs</Box>
             <VStack m={3}>
-                {isUserLoggedin() && (
+                {loggedIn && (
                     <>
                         <RouteLink to="/createSurvey">
                             <Button m={3} colorScheme="purple">

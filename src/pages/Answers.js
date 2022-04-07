@@ -1,11 +1,12 @@
 import { Box, Center, VStack, Button } from '@chakra-ui/react';
 import { Frame } from '../components/frame';
 import { Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
-import { Link as RouteLink, useParams } from 'react-router-dom';
+import { Link as RouteLink, Navigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Histogram from 'react-chart-histogram';
 import { VictoryPie } from 'victory-pie';
+import { isUserLoggedin } from '../utilities/login';
 
 function Answers() {
     const { id } = useParams();
@@ -15,6 +16,10 @@ function Answers() {
             setSurvey(data);
         });
     }, [id]);
+
+    if (!isUserLoggedin()) {
+        return <Navigate to="/" />;
+    }
 
     return !survey ? (
         <Frame>

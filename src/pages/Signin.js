@@ -1,5 +1,6 @@
 import { Box, Center, Button, VStack } from '@chakra-ui/react';
 import { Formik } from 'formik';
+import { Navigate } from 'react-router-dom';
 
 import { Frame } from '../components/frame';
 import { EmailField } from '../components/inputs/EmailField';
@@ -8,18 +9,16 @@ import {
     getRequirement,
     schemaToValidation,
 } from '../utilities/fieldRequirements';
-import { toggleSignIn } from '../utilities/login';
-import { logIn } from '../utilities/login';
+import { signIn, isUserLoggedin } from '../utilities/login';
 
-function Signin() {
-    let signIn = (results) => {
-        toggleSignIn();
-        console.log('results: ', results);
-    };
+function Signin({ setLoggedIn, ...props }) {
     const validationSchema = schemaToValidation({
         email: getRequirement('email'),
         password: getRequirement('password'),
     });
+    if (isUserLoggedin()) {
+        return <Navigate to="/" />;
+    }
 
     return (
         <Frame title="Sign In">
@@ -31,10 +30,11 @@ function Signin() {
                         password: '',
                     }}
                     onSubmit={async (values) => {
-                        logIn({
-                                email: values.email,
-                                password: values.password,
+                        await signIn({
+                            email: values.email,
+                            password: values.password,
                         });
+                        setLoggedIn(isUserLoggedin());
                     }}
                 >
                     {({ handleSubmit, isSubmitting, handleChange }) => (

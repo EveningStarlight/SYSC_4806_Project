@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button, Flex, ChakraProvider, Spacer } from '@chakra-ui/react';
 
 import theme from '../theme/theme';
@@ -14,7 +15,7 @@ import { SurveyAnswered } from '../pages/SurveyAnswered';
 import { Answers } from '../pages/Answers';
 import { MissingPage } from '../pages/MissingPage';
 
-import { isUserLoggedin, toggleSignIn } from '../utilities/login';
+import { isUserLoggedin, signOut } from '../utilities/login';
 
 import {
     BrowserRouter as Router,
@@ -24,6 +25,8 @@ import {
 } from 'react-router-dom';
 
 function App() {
+    const [loggedIn, setLoggedIn] = useState(isUserLoggedin());
+
     return (
         <ChakraProvider theme={theme}>
             <Router>
@@ -32,12 +35,13 @@ function App() {
                         <Button m={3}>Home</Button>
                     </RouteLink>
                     <Spacer />
-                    {isUserLoggedin() ? (
+                    {loggedIn ? (
                         <RouteLink to="/">
                             <Button
                                 m={3}
                                 onClick={() => {
-                                    toggleSignIn();
+                                    signOut();
+                                    setLoggedIn(isUserLoggedin());
                                 }}
                             >
                                 Sign Out
@@ -57,9 +61,15 @@ function App() {
                     )}
                 </Flex>
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/signin" element={<Signin />} />
-                    <Route path="/createAccount" element={<CreateAccount />} />
+                    <Route path="/" element={<Home loggedIn={loggedIn} />} />
+                    <Route
+                        path="/signin"
+                        element={<Signin setLoggedIn={setLoggedIn} />}
+                    />
+                    <Route
+                        path="/createAccount"
+                        element={<CreateAccount setLoggedIn={setLoggedIn} />}
+                    />
                     <Route path="/survey" element={<AnswerSurveyList />} />
                     <Route path="/survey/:id" element={<AnswerSurvey />} />
                     <Route path="/createSurvey" element={<CreateSurvey />} />
