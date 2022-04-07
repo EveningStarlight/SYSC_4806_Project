@@ -9,12 +9,11 @@ import {
     Textarea,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
-import { Link as RouteLink, Navigate } from 'react-router-dom';
+import { Link as RouteLink } from 'react-router-dom';
 
 import { Frame } from '../components/frame';
 import { Question } from '../components/questions/Question';
 import { QuestionList } from '../components/questions/QuestionList';
-import { isUserLoggedin } from '../utilities/login';
 import axios from 'axios';
 
 class CreateSurvey extends React.Component {
@@ -80,10 +79,6 @@ class CreateSurvey extends React.Component {
     };
 
     render() {
-        if (!isUserLoggedin()) {
-            return <Navigate to="/" />;
-        }
-
         return (
             <Frame title="Create a New Survey">
                 <form id="CreateSurveyForm" action="php/CreateSurveyAction.php">
