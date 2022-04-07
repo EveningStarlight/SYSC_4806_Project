@@ -23,7 +23,7 @@ let signIn = async (results) => {
             password: results.password,
         })
         .then((result) => {
-            if (result) {
+            if (result.data) {
                 window.localStorage.setItem('email', results.email);
                 window.localStorage.setItem('loggedIn', true);
             }
