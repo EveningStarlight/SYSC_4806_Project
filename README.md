@@ -59,4 +59,5 @@ UML class diagram of Models
 Up-to-date schema of the database
 
 ## Back-end
+
 We chose to use a MERN stack (MongoDB, Express, React, NodeJS) for the this project to have our front-end react code connect to a nodejs backend which uses express to make calls to our mongodb database which is running on mongodbs cloud atlas platform. We chose mongodb since it uses a json format for storing data entries which is very easy to manipulate using javascript.
