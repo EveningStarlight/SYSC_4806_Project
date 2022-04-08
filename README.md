@@ -1,8 +1,7 @@
 # SYSC_4806_Project Mini-Monkey Survey
 
-Languages Used: JavaScript, HTML, CSS
+Languages Used: JavaScript, HTML
 
-How to run / use:
 Deployment: https://survey-gorilla.herokuapp.com/
 
 ## Development
@@ -37,18 +36,7 @@ Both of these must pass in order for CircleCI to greenlight a build.
 
 ## Current state of the project:
 
-Further behind then we wanted, our scope was to big for this milestone, to many usecases where attempted
-
-## Plan for the next sprint:
-
-Get all the base use cases implemented:
-
-    - Writting Surevys to the backend
-    - Saving Answers to the backend
-    - The ability to select what survey you want to answer
-    - The ability to see the answers to your survey
-
-Look into a different backend solution
+All desired features implemented.
 
 ## Diagrams & Schemas
 
@@ -58,6 +46,6 @@ UML class diagram of Models
 
 Up-to-date schema of the database
 
-We have decided to go with a JSON file for our backend right now
--every survey is a item in the file which has sub items for questions
--each survey item has an array of answers which gets an array of all the answers per question
+## Back-end
+
+We chose to use a MERN stack (MongoDB, Express, React, NodeJS) for the this project to have our front-end react code connect to a nodejs backend which uses express to make calls to our mongodb database which is running on mongodbs cloud atlas platform. We chose mongodb since it uses a json format for storing data entries which is very easy to manipulate using javascript.
