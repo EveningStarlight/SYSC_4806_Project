@@ -1,8 +1,7 @@
 # SYSC_4806_Project Mini-Monkey Survey
 
-Languages Used: JavaScript, HTML, CSS
+Languages Used: JavaScript, HTML
 
-How to run / use:
 Deployment: https://survey-gorilla.herokuapp.com/
 
 ## Development
@@ -37,18 +36,7 @@ Both of these must pass in order for CircleCI to greenlight a build.
 
 ## Current state of the project:
 
-All desired features implemeted.
-
-## Plan for the next sprint:
-
-Get all the base use cases implemented:
-
-    - Writting Surevys to the backend
-    - Saving Answers to the backend
-    - The ability to select what survey you want to answer
-    - The ability to see the answers to your survey
-
-Look into a different backend solution
+All desired features implemented.
 
 ## Diagrams & Schemas
 
